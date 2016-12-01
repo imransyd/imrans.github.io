@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="description" content="Catching where in an element the user clicked">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+
+<!--dropdown button for the shapes-->
+	<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+
+        <button id="rec1">
+          Rectangle
+        </button>
+
+        <button id="tri1">Triangle</button>
+
+        <button id="cir1">Circle</button>
+
+        <button id= "clear">Clear</button>
+
+				<!--<button id= "deleteOne">deleteOne</button>-->
+
+        <button id="exportToJson">export to JSON</button>
+        
+    </div>
+  </div>
+
+
+
+<div>
+		<input id="colorid" type="text" list="listColor">
+
+				<datalist id="listColor">
+
+   				<option label='red' 	 	 value='#FF0000'>
+   				<option label='green' 	 value='#008000'>
+					<option label='Yellow' 	 value='#FFFF00'>
+					<option label='hotpink'  value='#FF69B4'>
+					<option label='Maroon'   value='#800000'>
+					<option label='Blue'     value='#0000FF'>
+
+				</datalist>
+
+			<button id = "addColor">add</button>
+	</div>
+
+
+	<div id= "divinfo"><p id="info"></p></div>
+  <canvas id="canv" width="500px" height="400px"></canvas>
+   
+	<div id="divTextBox"><textarea id="TBox" name="TextBox" cols="50" rows="50">
+		</textarea></div>
+
+</body>
+</html>
