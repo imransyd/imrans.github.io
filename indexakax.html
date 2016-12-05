@@ -16,9 +16,6 @@ let request = new XMLHttpRequest();
 //'GET', 'http://forverkliga.se/JavaScript/api/simple.php');  api/ajax-lab.php
 	request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php?key=value');
 	request.onreadystatechange = function(event) {
-	  console.log('readyState: ' + request.readyState +
-				 ', status: ' + request.status);
-	  console.log('responseText: '+request.responseText);
 	  
 	  // om readyState==4, skriv ut resultatet
 	  if( request.readyState == 4 ) {
@@ -39,16 +36,6 @@ let request = new XMLHttpRequest();
 <div id="resultat">
 Resultatet kommer här...
 </div>
-<code><pre>
-	let request = new XMLHttpRequest();
-	//en http://forverkliga.se/JavaScript/api/ajax-lab.php
-	request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php');
-	request.onreadystatechange = function(event) {
-	  console.log('readyState: ' + request.readyState +
-				 ', status: ' + request.status);
-	  console.log('responseText: '+request.responseText);
-	};
-	request.send();
-</pre></code>
+
 </body>
 </html>
