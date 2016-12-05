@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,16 +12,20 @@
 <script>
 
 let request = new XMLHttpRequest();
-//'GET', 'http://forverkliga.se/JavaScript/api/simple.php');  api/ajax-lab.php
+
 	request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php?key=value');
 	request.onreadystatechange = function(event) {
-	  
+  
 	  // om readyState==4, skriv ut resultatet
-	  if( request.readyState == 4 ) {
-		let div = document.getElementById('resultat');
+	  if( request.readyState == 4 && request.status == 200) {
+		  
+    document.getElementById("resultat").innerHTML =
+    request.getAllResponseHeaders();
+		/*let div = document.getElementById('resultat');
 		let obj = JSON.parse(request.responseText);
 		div.innerHTML = 'obj message är "' +
 			obj.message + '". Klockan är ' + obj.time;
+	  */
 	  }
 	};
 	request.send();
@@ -35,7 +38,9 @@ let request = new XMLHttpRequest();
 <body>
 <div id="resultat">
 Resultatet kommer här...
+
 </div>
+
 
 </body>
 </html>
