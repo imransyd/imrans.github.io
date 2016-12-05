@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Demo querystring</title>
+<style>
+	code, pre { background-color: beige;}
+	#resultat {
+		border: 1px solid black;
+		background-color: #eeeeee;
+	}
+</style>
+<script>
 let req = new XMLHttpRequest();
 req.onreadystatechange = function(event) {
 	console.log("readyState:" + req.readyState);
@@ -9,3 +21,14 @@ req.onreadystatechange = function(event) {
 };
 req.open('GET', 'http://forverkliga.se/JavaScript/api/simple.php?key=value');
 req.send();
+</script>
+</head>
+<body>
+<div id="resultat">
+Resultatet kommer här...
+
+</div>
+
+
+</body>
+</html>
