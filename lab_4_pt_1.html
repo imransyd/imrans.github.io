@@ -22,8 +22,8 @@
 	  if( request.readyState == 4 ) {
 		let div = document.getElementById('resultat');
 		let obj = JSON.parse(request.responseText);
-		div.innerHTML = 'Vi fick ett objekt med meddelandet "' +
-			obj.message + '". Klockan är ' + obj.time;
+		div.innerHTML = 'meddelandet "' +
+			obj.message;
 	  }
 	};
 	request.send();
