@@ -12,7 +12,7 @@
 </style>
 <script>
 	let request = new XMLHttpRequest();
-	request.open('GET', 'https://imransyd.github.io/lab_4_pt_1.html?name=imran');
+	request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php?name=imran');
 	request.onreadystatechange = function(event) {
 	  console.log('readyState: ' + request.readyState +
 				 ', status: ' + request.status);
@@ -26,8 +26,8 @@
 			obj.message + '". Klockan är ' + obj.time;
 	  }
 	};
-	request.send();
-	//console.log(request)
+	//request.send();
+	console.log(request)
 </script>
 </head>
 <body>
