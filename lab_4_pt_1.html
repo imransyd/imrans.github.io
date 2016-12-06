@@ -34,7 +34,7 @@ let p = new Promise( function(success, fail) {
 			let div = document.getElementById('resultat');
 			let obj = JSON.parse(data);
 			div.innerHTML = 'Vi fick ett objekt med meddelandet "' +
-				obj.message + '". Klockan är ' + obj.time;
+				obj.message + '" ';
 		},
 		function(errorMessage) { // onFailure
 			let div = document.getElementById('resultat');
