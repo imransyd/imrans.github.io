@@ -4,7 +4,7 @@
 <head>
 <title>Demo querystring</title>
 <style>
-	code, pre { background-color: beige;}
+	pre { background-color: beige;}
 	#resultat {
 		border: 1px solid black;
 		background-color: #eeeeee;
@@ -34,15 +34,6 @@
 <div id="resultat">
 Resultatet kommer här...
 </div>
-<code><pre>
-	let request = new XMLHttpRequest();
-	request.open('GET', 'http://forverkliga.se/JavaScript/api/simple.php');
-	request.onreadystatechange = function(event) {
-	  console.log('readyState: ' + request.readyState +
-				 ', status: ' + request.status);
-	  console.log('responseText: '+request.responseText);
-	};
-	request.send();
-</pre></code>
+
 </body>
 </html>
