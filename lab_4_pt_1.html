@@ -12,7 +12,7 @@
 </style>
 <script>
 	let request = new XMLHttpRequest();
-	request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php');
+	
 	request.onreadystatechange = function(event) {
 	  console.log('readyState: ' + request.readyState +
 				 ', status: ' + request.status);
@@ -26,6 +26,7 @@
 			obj.message;
 	  }
 	};
+	request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php');
 	request.send();
 	console.log(request)
 </script>
