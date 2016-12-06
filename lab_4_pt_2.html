@@ -19,10 +19,7 @@
 	  
 	  // om readyState==4, skriv ut resultatet
 	  if( request.readyState == 4 ) {
-		let div = document.getElementById('resultat');
-		let obj = JSON.parse(request.responseText);
-		div.innerHTML = 'meddelandet "' +
-			obj.message;
+		
 	  }
 	};
 
