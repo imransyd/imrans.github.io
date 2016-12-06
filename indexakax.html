@@ -10,30 +10,41 @@
 	}
 </style>
 <script>
-
-let request = new XMLHttpRequest();
-
-	request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php');
+let p = new Promise( function(success, fail) {
+		let request = new XMLHttpRequest();
+		request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php');
 	request.onreadystatechange = function(event) {
-  
-	  // om readyState==4, skriv ut resultatet
-	  if( request.readyState == 4 && request.status == 200) {
+		  console.log('readyState: ' + request.readyState +
+					 ', status: ' + request.status);
+		  console.log('responseText: '+request.responseText);
 		  
-    document.getElementById("resultat").innerHTML =
-    request.getAllResponseHeaders();
-		let div = document.getElementById('resultat');
-		let obj = JSON.parse(request.responseText);
-		div.innerHTML = 'obj message är "' +
-			obj.message + '". Klockan är ' + obj.time;
-	  
-	  }
-	};
-	request.send();
+		  // om readyState==4, skriv ut resultatet
+		  if( request.readyState == 4 && request.status == 200 ) {
+			// success - när servern har returnerat data till oss
+			success(request.responseText);				
+		  } else if( request.status < 200 || request.status > 299 ) {
+			fail('Something went wrong. status==' + request.status);
+		  }
+		};
+		request.send();
+	} );  
+	
+	p.then(
+		function(data) { // onSuccess
+			let div = document.getElementById('resultat');
+			let obj = JSON.parse(data);
+			div.innerHTML = 'Vi fick ett objekt med meddelandet "' +
+				obj.message + '". Klockan är ' + obj.time;
+		},
+		function(errorMessage) { // onFailure
+			let div = document.getElementById('resultat');
+			div.innerHTML = 'Något gick fel: ' + errorMessage;
+		}
+	);
 	//console.log(request)
-
-
-
 </script>
+
+
 </head>
 <body>
 <div id="resultat">
