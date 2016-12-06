@@ -22,7 +22,7 @@ let request = new XMLHttpRequest();
     document.getElementById("resultat").innerHTML =
     request.getAllResponseHeaders();
 		let div = document.getElementById('resultat');
-		let obj = JSON.stringify(request.responseText);
+		let obj = JSON.parse(request.responseText);
 		div.innerHTML = 'obj message är "' +
 			obj.message + '". Klockan är ' + obj.time;
 	  
