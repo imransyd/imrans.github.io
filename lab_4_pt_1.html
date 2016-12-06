@@ -14,9 +14,9 @@ let p = new Promise( function(success, fail) {
 		let request = new XMLHttpRequest();
 		request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php');
 	request.onreadystatechange = function(event) {
-		  console.log('readyState: ' + request.readyState +
+		/*  console.log('readyState: ' + request.readyState +
 					 ', status: ' + request.status);
-		  console.log('responseText: '+request.responseText);
+		  console.log('responseText: '+request.responseText);*/
 		  
 		  // om readyState==4, skriv ut resultatet
 		  if( request.readyState == 4 && request.status == 200 ) {
@@ -34,11 +34,11 @@ let p = new Promise( function(success, fail) {
 			let div = document.getElementById('resultat');
 			let obj = JSON.parse(data);
 			div.innerHTML = 'Meddelandet ' +
-				obj.message';
+				obj.message;
 		},
-		function(errorMessage) { // onFailure
+		/*function(errorMessage) { // onFailure
 			let div = document.getElementById('resultat');
-			div.innerHTML = 'Något gick fel: ' + errorMessage;
+			div.innerHTML = 'Något gick fel: ' + errorMessage;*/
 		}
 	);
 	//console.log(request)
