@@ -1,51 +1,48 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Lab 4 Part 1</title>
+<title>Demo querystring</title>
 <style>
 	code, pre { background-color: beige;}
 	#resultat {
 		border: 1px solid black;
 		background-color: #eeeeee;
-		font-size: 16px;
 	}
 </style>
 <script>
-let req = new XMLHttpRequest();
-req.onreadystatechange = function(event) {
-	console.log("readyState:" + req.readyState);
-	console.log("status:" + req.status);
-	console.log("responseText:" + req.responseText);
-	if( req.readyState == 4 )
-		console.log('- success!');
-	console.log("-----");
-};
-req.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php');
-req.send();  
-	
-	req.then(
-		function(data) { // onSuccess
-			let div = document.getElementById('resultat');
-			let obj = JSON.parse(data);
-			div.innerHTML = 'Meddelandet ' +
-				obj.message;
-		},
-		function(errorMessage) { // onFailure
-			let div = document.getElementById('resultat');
-			div.innerHTML = 'Något gick fel: ' + errorMessage;
-		}
-	);
+	let request = new XMLHttpRequest();
+	request.open('GET', 'http://forverkliga.se/JavaScript/api/ajax-lab.php');
+	request.onreadystatechange = function(event) {
+	  console.log('readyState: ' + request.readyState +
+				 ', status: ' + request.status);
+	  console.log('responseText: '+request.responseText);
+	  
+	  // om readyState==4, skriv ut resultatet
+	  if( request.readyState == 4 ) {
+		let div = document.getElementById('resultat');
+		let obj = JSON.parse(request.responseText);
+		div.innerHTML = 'Vi fick ett objekt med meddelandet "' +
+			obj.message + '". Klockan är ' + obj.time;
+	  }
+	};
+	request.send();
 	//console.log(request)
 </script>
-
-
 </head>
 <body>
 <div id="resultat">
 Resultatet kommer här...
-
 </div>
-
-
+<code><pre>
+	let request = new XMLHttpRequest();
+	request.open('GET', 'http://forverkliga.se/JavaScript/api/simple.php');
+	request.onreadystatechange = function(event) {
+	  console.log('readyState: ' + request.readyState +
+				 ', status: ' + request.status);
+	  console.log('responseText: '+request.responseText);
+	};
+	request.send();
+</pre></code>
 </body>
 </html>
