@@ -134,7 +134,7 @@ var olBookList = document.getElementById("olBookList");
 //  *********** add book to the list*************    
 
     
- let pushBook = function() {
+ let AddBook = function() {
      
     let titleToPush = BookTitleInput.value;
     let authorToPush = AuthorNameInput.value;
@@ -150,7 +150,7 @@ var olBookList = document.getElementById("olBookList");
                 let json = JSON.parse(req.responseText);
                 
                 if(json.status === 'error'){
-                    pushBook();
+                    AddBook();
                 }else {
                     BookTitleInput.value="";
                     AuthorNameInput.value="";
@@ -162,11 +162,11 @@ req.send();
      
 };
 
-AddBookBttn.addEventListener('click', pushBook);    
+AddBookBttn.addEventListener('click', AddBook);    
 
 
 
-//************** view list ********************* 
+//************** view the book list ********************* 
 let reloadPage = function(){
     let url = "https://www.forverkliga.se/JavaScript/api/crud.php?op=select&key=1WA18";
     
@@ -179,8 +179,7 @@ let reloadPage = function(){
                 if(json.status === 'error'){
                     reloadPage();
                 }
-
-//********************************************************************                
+           
                 else {
                     let bookArray = json.data;
                     olBookList.innerHTML = "";
@@ -312,14 +311,14 @@ MakeChangesBttn.addEventListener('click', ModifyData);
 
 
  
- <div=class="col-sm-6">     
+ <div class="col-sm-6">     
 <div id="el1">
   <div>
     <span>
-    <input id="BookTitleInput" type="text" name="titleinput" placeholder="Book Name/Title" ></input>
+    <input id="BookTitleInput" type="text" name="titleinput" placeholder="Book Name/Title" >
   </span> 
   <span>
-    <input id = "AuthorNameInput" type="text" name="authorinput" placeholder = "Author" ></input>
+    <input id = "AuthorNameInput" type="text" name="authorinput" placeholder = "Author" >
   </span> 
   </div>
   <button id = "AddBookBttn">Add a Book</button>
