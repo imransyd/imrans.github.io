@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Book List Api</title>
+</head>
+<body>
+
+  
+  <div class="container-fluid">
+   
+   <div class="row">
+     
+
+      <div id="el0" class="col-sm-6">
+            <button id="bttnApi"> Request Api</button>
+    <div id="apiReqAnswerFeild" class="txtFeild"></div>
+</div>
+    </div>
+
+
+      
+  
+<!--  ............-     -->
+
+
+ 
+ <div=class="col-sm-6">     
+<div id="el1">
+  <div>
+    <span>
+    <input id="BookTitleInput" type="text" name="titleinput" placeholder="Book Name/Title" ></input>
+  </span> 
+  <span>
+    <input id = "AuthorNameInput" type="text" name="authorinput" placeholder = "Author" ></input>
+  </span> 
+  </div>
+  <button id = "AddBookBttn">Add a Book</button>
+            
+    </div>
+</div>
+  </div>
+
+
+<!-- ..........- -->
+
+
+<div id="el2">
+            <button id = "ViewBookListBttn">View Books</button>
+        <div id = "viewBooks">
+          <ol id = olBookList></ol>
+        </div>
+
+</div>
+
+<!-- ..........- -->
+
+
+<div id="el3" class = "globalDivChange">
+  <div>
+           <input id="booknumber" type="text" name="booknumber" placeholder="Book ID">
+           
+           
+           <input type="text"  id="booktitle"  name="booktitle" placeholder="Book title">
+           
+           
+           <input type="text" id="bookauthor"  name="bookauthor" placeholder="Author">
+</div>
+  
+           <button id = "MakeChangesBttn">Change a Book</button>
+
+</div>
+
+<!-- ............- -->
+
+<div id="el4" class = "globalDivChange">
+            
+<div>            
+            <input type="text" id="bookid"  name="bookid" placeholder="Enter Book-id">
+  </div>
+  <button id = "DeleteBookFromList">Delete a Book</button>
+
+</div>
+  </div>
+</body>
+</html>
