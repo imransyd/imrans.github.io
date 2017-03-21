@@ -12,24 +12,27 @@
   
   <style>
     
-.globalDivChange{}
+
 
 #el0{
-	  padding-top:100px;
+      padding-top:100px;
       padding-bottom: 100px;
+      padding-left: 10px;
       height:auto;  
       background:repeating-radial-gradient(#33b2a2, #33b2a2 5px, white 5px, white 10px);
 }
 #el1{
-	  padding-top:100px;
+      padding-top:100px;
       padding-bottom: 100px;
+	padding-left: 10px;
       height:auto;
       background:linear-gradient(to bottom, #8dd2d9 , #58c0c7);
 }
 
 #el2{
-	  padding-top:100px;
+      padding-top:100px;
       padding-bottom: 100px;
+	padding-left: 10px;
       height:auto;
       background:radial-gradient(#77d19e,#46c17b);
 }
@@ -37,6 +40,7 @@
 #el3{
       padding-top:100px;
       padding-bottom: 100px;
+	padding-left: 10px;
       height:auto;
 	  background:repeating-linear-gradient(-45deg, #b0d8f0, #de9dd4 5px, white 5px, white 10px);
 }
@@ -44,6 +48,7 @@
 #el4{
 	  padding-top:100px;
       padding-bottom: 100px;
+	padding-left: 10px;
       height:auto;
       background:repeating-radial-gradient(#b8e7bf, #b8e7bf 5px, white 5px, white 10px);
 }
@@ -54,6 +59,7 @@
 	margin: 8px 2px 8px 2px;	
     padding: 10px;
 	background-color: lightyellow;
+	opacity:80%;
 }
   
   #viewBooks {
@@ -62,6 +68,7 @@
 	margin: 8px 2px 8px 2px;	
     padding: 10px;
 	background-color: lightyellow;
+	  opacity:80%;
 }
   </style>
   <script>
@@ -293,16 +300,13 @@ MakeChangesBttn.addEventListener('click', ModifyData);
 <body>
 
   
-  <div class="container-fluid">
-   
-   <div class="row">
-     
+
 
       <div id="el0" class="col-sm-6">
             <button id="bttnApi"> Request Api</button>
     <div id="apiReqAnswerFeild" class="txtFeild"></div>
 </div>
-    </div>
+
 
 
       
@@ -311,7 +315,7 @@ MakeChangesBttn.addEventListener('click', ModifyData);
 
 
  
- <div class="col-sm-6">     
+ 
 <div id="el1">
   <div>
     <span>
@@ -323,7 +327,7 @@ MakeChangesBttn.addEventListener('click', ModifyData);
   <button id = "AddBookBttn">Add a Book</button>
             
     </div>
-</div>
+
   
 
 
@@ -366,6 +370,6 @@ MakeChangesBttn.addEventListener('click', ModifyData);
   <button id = "DeleteBookFromList">Delete a Book</button>
 
 </div>
- </div> 
+
 </body>
 </html>
