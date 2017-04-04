@@ -1,1 +1,33 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAek-f5qhcsdImNvJiLX5aSfo_W8MEpUlA",
+    authDomain: "autentication-e7757.firebaseapp.com",
+    databaseURL: "https://autentication-e7757.firebaseio.com",
+    projectId: "autentication-e7757",
+    storageBucket: "autentication-e7757.appspot.com",
+    messagingSenderId: "885102029380"
+  };
+  firebase.initializeApp(config);
+</script>
+</head>
+<body>
+	<div>
+		<input type="name" id = "InName"></ipnut>
+		<button id = "bttnPress">press to see</button>
+
+
+	</div>
+	<div id = "ShowDiv">
+		<div id = "result"></div>
+		<div></div>
+</body>
+</html>
