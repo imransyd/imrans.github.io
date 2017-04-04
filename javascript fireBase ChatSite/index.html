@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Firbase Chat Side</title>
+  
+  <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDfEK1O9urZ-2YpNn1oVnafJzb-Knh-BWE",
+    authDomain: "first-firebase-project-65588.firebaseapp.com",
+    databaseURL: "https://first-firebase-project-65588.firebaseio.com",
+    storageBucket: "first-firebase-project-65588.appspot.com",
+    messagingSenderId: "48254942954"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+</head>
+<body>
+  <div class="field">
+    <input type="text" name="name" placeholder="Username" id="name" required>
+  </div>
+
+  </div>
+  <div class="field">
+    <button id='addbutton'>Add <i>name</i> </button>
+
+  </div>
+
+  <input type = "button" id = "deleteBTTN" value = "delete name">
+  <div id = "welcomeMessage"></div>
+
+<div id = "messageDiv">
+
+
+  <textarea rows="4" cols="50" id = "textInput"></textarea>
+  <button id="saveMssg">send</button>
+
+
+  </div>
+
+<div id = "welcomeMessage">
+<ul id = "messagelist"></ul></div>
+
+</body>
+</html>

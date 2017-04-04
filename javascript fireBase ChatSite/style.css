@@ -1,0 +1,23 @@
+body {
+  padding: 20px 80px;
+  background: #eee url(http://subtlepatterns.com/patterns/extra_clean_paper.png);
+}
+#welcomeMessage {
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            padding: 8px;
+            margin: 4px;
+    background-color: antiquewhite;
+        };
+ul {
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            padding: 8px;
+            margin: 4px;
+        }
+li {
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            padding: 8px;
+            margin: 4px;
+        }
