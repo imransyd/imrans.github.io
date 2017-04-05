@@ -4,6 +4,66 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+	<style>
+		
+		/* The Modal (background) */
+.classModal {
+	display: none; /* Hidden by default*/
+	position: fixed;
+	z-index: 1; /* Sit on top */
+	left: 70px;
+	top: 70px;
+	width: 70%; 
+	height: 70%;
+	overflow: auto;
+	padding-top: 60px;
+	background-color: #fefefe;
+	border: 1px solid #888;
+	width: 80%; 
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+button:hover {
+    opacity: 0.6;
+}
+
+input[type=text], input[type=password] {
+    width: 60%;
+	border-left:20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+}
+
+
+/* Extra styles for the cancel button */
+#cancel {
+    width: auto;
+    padding: 6px 11px;
+    background-color: #f44336;
+}
+
+
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+		
+	</style>
   <title>JS Bin</title>
 	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
 <script>
@@ -20,14 +80,82 @@
 </script>
 </head>
 <body>
-	<div>
-		<input type="name" id = "InName"></ipnut>
-		<button id = "bttnPress">press to see</button>
+	<script type="text/javascript">
+		window.addEventListener('load', function(){
+		
+			//---------to send to the login block--
+let modal = document.getElementById('modal');
+let bttnlogin = document.getElementById("login");
+
+bttnlogin.addEventListener('click', function(event){
+
+		modal.style.display='block';
+
+});
 
 
-	</div>
-	<div id = "ShowDiv">
-		<div id = "result"></div>
-		<div></div>
+
+let cancelBttn = document.getElementById("cancel");
+
+cancelBttn.addEventListener('click', function(event){
+
+		modal.style.display='none';
+
+});
+//------------------**********-----------
+
+// Ett objekt för att hantera GitHub-autentisering
+
+let gitHubLogin=document.setElementById("gitHubLogin");
+
+
+
+// Skapa ett Promise som visar ett popup-fönster
+// Obs! Kontrollera att fönstret inte blockeras av en ad blocker
+gitHubLogin.addEventListener('click', function(event){
+	
+let provider = new firebase.auth.GithubAuthProvider();
+
+firebase.auth().signInWithPopup(provider)
+.then(function(result) {
+	// Om autentisering lyckas, så finns användarinfo i user
+	let user = result.user;
+});
+	})
+			
+		});
+	</script>
+
+		<h2>firebase authentication login</h2>
+
+		<button id= "login" style="width:auto;" style="width:auto";>Login</button>
+
+		<div id="modal" class = "classModal">
+
+
+			<div class="imgcontainer">
+
+				<img src="img_avatar2.png" alt="Avatar" class="avatar">
+			</div>
+
+			<div class="container">
+				<label><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="uname" align="middle" required>
+
+				<label><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" align="right" required>
+
+				<button id = "submit">Login</button>
+				<input type="checkbox" checked="checked"> Remember me
+			</div>
+
+			<div class="container" style="background-color : #f1f1f1">
+				<button id = "cancel">Cancel</button>
+				<span class="psw">Forgot <a href="#">password?</a></span>
+				<button id = "gitHubLogin" style="background-color:silver">github</button>
+			</div>
+
+		</div>
+
 </body>
 </html>
