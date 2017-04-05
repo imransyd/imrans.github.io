@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Firebase DB test">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Firebase Database demo</title>
+
+	<style>
+		body > div {
+			border: 1px solid darkgray;
+			background-color: antiquewhite;
+		}
+		div {
+			border: 1px solid lightgray;
+			border-radius: 8px;
+			padding: 8px;
+			margin: 4px;
+		}
+	</style>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyBmls2sfVR4H6kaJBVMkVopIIDKvMgpPK4",
+		authDomain: "fir-feu16.firebaseapp.com",
+		databaseURL: "https://fir-feu16.firebaseio.com",
+		storageBucket: "fir-feu16.appspot.com",
+		messagingSenderId: "489555246507"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+</head>
+<body>
+	
+	
+	<script type="text/javascript">
+		// För att garantera att inga DOM-element är null
+		window.addEventListener('load', function() {
+			var provider = new firebase.auth.GithubAuthProvider();
+			console.log('före autentisering');
+			
+			firebase.auth().signInWithPopup(provider)
+			.then(function(result) {
+				console.log('Autentisering lyckades: ', result);
+			})
+			.catch(function(error) {
+				console.log('Autentisering misslyckades: ', error);
+			})
+		});
+	</script>
+</body>
+</html>
