@@ -108,20 +108,14 @@ cancelBttn.addEventListener('click', function(event){
 
 let gitHubLogin=document.setElementById("gitHubLogin");
 
-
-
-// Skapa ett Promise som visar ett popup-fönster
-// Obs! Kontrollera att fönstret inte blockeras av en ad blocker
-gitHubLogin.addEventListener('click', function(event){
 	
 let provider = new firebase.auth.GithubAuthProvider();
 
-firebase.auth().signInWithPopup(provider)
-.then(function(result) {
+firebase.auth().signInWithPopup(provider).then(function(result) {
 	// Om autentisering lyckas, så finns användarinfo i user
 	let user = result.user;
 });
-	})
+	
 			
 		});
 	</script>
