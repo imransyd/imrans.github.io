@@ -84,6 +84,8 @@ input[type=text], input[type=password] {
 
 <script>
 window.addEventListener('load', function(){
+
+	
 //---------to send to the login block--
 let modal = document.getElementById('modal');
 let bttnlogin = document.getElementById("login");
@@ -121,10 +123,10 @@ gitHubLogin.addEventListener('click', function(event){
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 		// Om autentisering lyckas, så finns användarinfo i user
 		let user = result.user;
-		resultPage.hidden=false;
+		resultPage.style.display='block';
 		bttnlogin .style.display='none';
-	}).catch(function(result) {
-		consle.log (result);
+	}).catch(function(error) {
+		console.log ('signinwithpopup, catched error. Error.code='+error.code+', error.message='+error.message);
 
 	});
 	console.log("authorization works");
@@ -135,14 +137,16 @@ logout.addEventListener('click', function(event){
 
 	firebase.auth().signOut()
 		.then(function(result) {
-		resultPage.hidden=true;
-		bttnlogin .hidden=false;
+		resultPage.style.display='none';
+		bttnlogin.style.display='block';
+;
 		// Utloggning lyckades
 	})
 		.catch(function(error) {
 		consle.log ("Utloggning misslyckades");
 
 	});
+});
 });
 
 </script>
