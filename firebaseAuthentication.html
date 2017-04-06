@@ -125,6 +125,7 @@ gitHubLogin.addEventListener('click', function(event){
 		let user = result.user;
 		resultPage.style.display='block';
 		bttnlogin .style.display='none';
+		modal.style.display='none';
 	}).catch(function(error) {
 		console.log ('signinwithpopup, catched error. Error.code='+error.code+', error.message='+error.message);
 
@@ -138,7 +139,7 @@ logout.addEventListener('click', function(event){
 	firebase.auth().signOut()
 		.then(function(result) {
 		resultPage.style.display='none';
-		bttnlogin.style.display='block';
+		bttnlogin.style.display='inline';
 ;
 		// Utloggning lyckades
 	})
