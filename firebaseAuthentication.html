@@ -122,10 +122,15 @@ window.addEventListener('load', function(){
 		firebase.auth().signInWithPopup(provider).then(function(result) {
 			// Om autentisering lyckas, så finns användarinfo i user
 			let user = result.user;
+			console.log("authorization works");
 			resultPage.style.display='show';
 			bttnlogin .style.display='hidden';
-		});
-	console.log("authorization works");
+		}).catch(function(result) {
+			// Om autentisering lyckas, så finns användarinfo i user
+			
+			console.log(result);
+
+	
 		
 	});
 
