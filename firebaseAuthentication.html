@@ -123,7 +123,7 @@ gitHubLogin.addEventListener('click', function(event){
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 		// Om autentisering lyckas, så finns användarinfo i user
 		let user = result.user;
-		resultPage.style.display='block';
+		resultPage.style.display='inline';
 		bttnlogin .style.display='none';
 		modal.style.display='none';
 	}).catch(function(error) {
