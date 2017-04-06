@@ -1,11 +1,27 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-	<style>
-		
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+
+
+		<title>JS Bin</title>
+		<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyAek-f5qhcsdImNvJiLX5aSfo_W8MEpUlA",
+				authDomain: "autentication-e7757.firebaseapp.com",
+				databaseURL: "https://autentication-e7757.firebaseio.com",
+				projectId: "autentication-e7757",
+				storageBucket: "autentication-e7757.appspot.com",
+				messagingSenderId: "885102029380"
+			};
+			firebase.initializeApp(config);
+		</script>
+        <style>
+        
 		/* The Modal (background) */
 .classModal {
 	display: none; /* Hidden by default*/
@@ -62,67 +78,77 @@ input[type=text], input[type=password] {
     .cancelbtn {
        width: 100%;
     }
-		
-	</style>
-  <title>JS Bin</title>
-	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAek-f5qhcsdImNvJiLX5aSfo_W8MEpUlA",
-    authDomain: "autentication-e7757.firebaseapp.com",
-    databaseURL: "https://autentication-e7757.firebaseio.com",
-    projectId: "autentication-e7757",
-    storageBucket: "autentication-e7757.appspot.com",
-    messagingSenderId: "885102029380"
-  };
-  firebase.initializeApp(config);
-</script>
-</head>
-<body>
-	<script type="text/javascript">
-		window.addEventListener('load', function(){
-		
-			//---------to send to the login block--
-let modal = document.getElementById('modal');
-let bttnlogin = document.getElementById("login");
+		</style>
+	</head>
+	<body>
 
-bttnlogin.addEventListener('click', function(event){
+<script>
+window.addEventListener('load', function(){
+
+	//---------to send to the login block--
+	let modal = document.getElementById('modal');
+	let bttnlogin = document.getElementById("login");
+
+	bttnlogin.addEventListener('click', function(event){
 
 		modal.style.display='block';
+		console.log("1st login button ");
 
-});
+	});
 
 
 
-let cancelBttn = document.getElementById("cancel");
+	let cancelBttn = document.getElementById("cancel");
 
-cancelBttn.addEventListener('click', function(event){
+	cancelBttn.addEventListener('click', function(event){
 
 		modal.style.display='none';
+		console.log("button cancel");
 
-});
-//------------------**********-----------
+	});
+	//------------------**********-----------
 
-// Ett objekt för att hantera GitHub-autentisering
+	// Ett objekt för att hantera GitHub-autentisering
 
-let gitHubLogin=document.setElementById("gitHubLogin");
+	let resultPage = document.getElementById("resultPage");
+	let logout= document.getElementById("logout");
+	let gitHubLogin=document.getElementById("gitHubLogin");
 
-	
-let provider = new firebase.auth.GithubAuthProvider();
+	gitHubLogin.addEventListener('click', function(event){
 
-firebase.auth().signInWithPopup(provider).then(function(result) {
-	// Om autentisering lyckas, så finns användarinfo i user
-	let user = result.user;
-});
-	
-			
+
+		let provider = new firebase.auth.GithubAuthProvider();
+
+		firebase.auth().signInWithPopup(provider).then(function(result) {
+			// Om autentisering lyckas, så finns användarinfo i user
+			let user = result.user;
+			resultPage.style.display='show';
+			bttnlogin .style.display='hidden';
 		});
-	</script>
+	console.log("authorization works");
+		
+	});
+
+logout.addEventListener('click', function(event){
+
+	firebase.auth().signOut()
+.then(function(result) {
+		resultPage.style.display='hidden';
+		bttnlogin .style.display='show';
+	// Utloggning lyckades
+})
+.catch(function(error) {
+	consle.log ("Utloggning misslyckades");
+		
+});
+});
+});
+</script>
 
 		<h2>firebase authentication login</h2>
 
 		<button id= "login" style="width:auto;" style="width:auto";>Login</button>
+
 
 		<div id="modal" class = "classModal">
 
@@ -146,10 +172,14 @@ firebase.auth().signInWithPopup(provider).then(function(result) {
 			<div class="container" style="background-color : #f1f1f1">
 				<button id = "cancel">Cancel</button>
 				<span class="psw">Forgot <a href="#">password?</a></span>
-				<button id = "gitHubLogin" style="background-color:silver">github</button>
+				<button id = 'gitHubLogin'>github</button>
 			</div>
 
 		</div>
+		<div id ="resultPage" style = "visibility : hidden">
+					<button id = "logout" style=" background-color:red">LogOut</button>
+			<div> <img src="https://images.pexels.com/photos/206756/pexels-photo-206756.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" style="width:50%;height:auto;"></div>
+		</div>
 
-</body>
+	</body>
 </html>
