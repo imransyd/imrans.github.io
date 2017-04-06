@@ -84,69 +84,66 @@ input[type=text], input[type=password] {
 
 <script>
 window.addEventListener('load', function(){
+//---------to send to the login block--
+let modal = document.getElementById('modal');
+let bttnlogin = document.getElementById("login");
 
-	//---------to send to the login block--
-	let modal = document.getElementById('modal');
-	let bttnlogin = document.getElementById("login");
+bttnlogin.addEventListener('click', function(event){
 
-	bttnlogin.addEventListener('click', function(event){
+	modal.style.display='block';
+	console.log("1st login button ");
 
-		modal.style.display='block';
-		console.log("1st login button ");
+});
+
+
+
+let cancelBttn = document.getElementById("cancel");
+
+cancelBttn.addEventListener('click', function(event){
+
+	modal.style.display='none';
+	console.log("button cancel");
+
+});
+//------------------**********-----------
+
+// Ett objekt för att hantera GitHub-autentisering
+
+let resultPage = document.getElementById("resultPage");
+let logout= document.getElementById("logout");
+let gitHubLogin=document.getElementById("gitHubLogin");
+
+gitHubLogin.addEventListener('click', function(event){
+
+
+	let provider = new firebase.auth.GithubAuthProvider();
+
+	firebase.auth().signInWithPopup(provider).then(function(result) {
+		// Om autentisering lyckas, så finns användarinfo i user
+		let user = result.user;
+		resultPage.hidden=false;
+		bttnlogin .style.display='none';
+	}).catch(function(result) {
+		consle.log (result);
 
 	});
+	console.log("authorization works");
 
-
-
-	let cancelBttn = document.getElementById("cancel");
-
-	cancelBttn.addEventListener('click', function(event){
-
-		modal.style.display='none';
-		console.log("button cancel");
-
-	});
-	//------------------**********-----------
-
-	// Ett objekt för att hantera GitHub-autentisering
-
-	let resultPage = document.getElementById("resultPage");
-	let logout= document.getElementById("logout");
-	let gitHubLogin=document.getElementById("gitHubLogin");
-
-	gitHubLogin.addEventListener('click', function(event){
-
-
-		let provider = new firebase.auth.GithubAuthProvider();
-
-		firebase.auth().signInWithPopup(provider).then(function(result) {
-			// Om autentisering lyckas, så finns användarinfo i user
-			let user = result.user;
-			console.log("authorization works");
-			resultPage.style.display='show';
-			bttnlogin .style.display='hidden';
-		}).catch(function(result) {
-			// Om autentisering lyckas, så finns användarinfo i user
-			
-			console.log(result);
-			});
-		
-	});
+});
 
 logout.addEventListener('click', function(event){
 
 	firebase.auth().signOut()
-.then(function(result) {
-		resultPage.style.display='hidden';
-		bttnlogin .style.display='show';
-	// Utloggning lyckades
-})
-.catch(function(error) {
-	consle.log ("Utloggning misslyckades");
-		
-});
-});
+		.then(function(result) {
+		resultPage.hidden=true;
+		bttnlogin .hidden=false;
+		// Utloggning lyckades
+	})
+		.catch(function(error) {
+		consle.log ("Utloggning misslyckades");
+
 	});
+});
 
 </script>
 
@@ -157,11 +154,6 @@ logout.addEventListener('click', function(event){
 
 		<div id="modal" class = "classModal">
 
-
-			<div class="imgcontainer">
-
-				<img src="img_avatar2.png" alt="Avatar" class="avatar">
-			</div>
 
 			<div class="container">
 				<label><b>Username</b></label>
