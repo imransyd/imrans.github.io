@@ -112,6 +112,8 @@ cancelBttn.addEventListener('click', function(event){
 // Ett objekt för att hantera GitHub-autentisering
 
 let resultPage = document.getElementById("resultPage");
+resultPage.style.display='none';
+
 let logout= document.getElementById("logout");
 let gitHubLogin=document.getElementById("gitHubLogin");
 
@@ -178,7 +180,7 @@ logout.addEventListener('click', function(event){
 			</div>
 
 		</div>
-		<div id ="resultPage" style = "visibility : hidden">
+		<div id ="resultPage">
 					<button id = "logout" style=" background-color:red">LogOut</button>
 			<div> <img src="https://images.pexels.com/photos/206756/pexels-photo-206756.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" style="width:50%;height:auto;"></div>
 		</div>
