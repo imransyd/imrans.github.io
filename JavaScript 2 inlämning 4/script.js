@@ -84,6 +84,7 @@
 								snapshot.forEach( animalRef => {
 									addAnimalToTable(animalRef.val());
 								})
+							
 						});
 					}
 				}
