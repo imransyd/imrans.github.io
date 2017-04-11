@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Firebase-funktioner för att sortera och filtrera+</title>
+    
+<script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCwxE83nO6_NU8VBQA4SM-dFxt7fCHS58A",
+    authDomain: "webshop-f7722.firebaseapp.com",
+    databaseURL: "https://webshop-f7722.firebaseio.com",
+    projectId: "webshop-f7722",
+    storageBucket: "webshop-f7722.appspot.com",
+    messagingSenderId: "276600456607"
+  };
+  firebase.initializeApp(config);
+</script>
+    
+</head>
+<body>
+    <!-- 
+Make a Web page 
++ where you can add items to the firebase database. 
+
++ Each item must have at least two properties.  
+
++ example a shop where every product (properties:  name and price.
+
++- see the items in a list,
+
++- can sort and filter. 
+
+For example, you can make a button to "sort by name", one for "sort by price" and so on. (At least two possible sorts.)
+-->
+    <h1>Välkommen till vårt ZOO</h1>
+	<p>
+		Lägga till ett djur
+		<input id="inputNamn" type="text" placeholder="Djurnamn"/>
+		<input id="inputFamilj" type="text" placeholder="Familj typ däggdjur"/>
+		<input id="inputAntal" type="text" placeholder="Antal"/>
+		<input id="inputFärg" type="text" placeholder="Färg"/>
+		<button id="addButton">Lägg till djur</button>
+	</p>
+	
+	<p>
+		Sortera efter: 
+		<button id="btnSortNamn">Djurnamn</button>
+		<button id="btnSortFamilj">Familj</button>
+		<button id="btnSortAntal">Antal</button>
+		<button id="btnSortFärg">Färg</button>
+	</p>
+	
+	<p>
+		Antal resultat: <input id="inputAntalResultat" placeholder="500"/>
+	</p>
+	
+	<table id="tableVisaDjur"></table>
+    
+
+</body>
+</html>
