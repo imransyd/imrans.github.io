@@ -35,29 +35,28 @@ Make a Web page
 
 For example, you can make a button to "sort by name", one for "sort by price" and so on. (At least two possible sorts.)
 -->
-    <h1>Välkommen till vårt ZOO</h1>
+    <h1>Product catalog</h1>
 	<p>
-		Lägga till ett djur
-		<input id="inputNamn" type="text" placeholder="Djurnamn"/>
-		<input id="inputFamilj" type="text" placeholder="Familj typ däggdjur"/>
-		<input id="inputAntal" type="text" placeholder="Antal"/>
-		<input id="inputFärg" type="text" placeholder="Färg"/>
-		<button id="addButton">Lägg till djur</button>
+		store in your products
+		<input id="ProdNamn" type="text" placeholder="Product Name"/>
+		<input id="ProdPrice" type="text" placeholder="Product price"/>
+		<input id="ProdColor" type="text" placeholder="Produuct Color"/>
+        
+		<button id="addButton">add products</button>
 	</p>
 	
 	<p>
-		Sortera efter: 
-		<button id="btnSortNamn">Djurnamn</button>
-		<button id="btnSortFamilj">Familj</button>
-		<button id="btnSortAntal">Antal</button>
-		<button id="btnSortFärg">Färg</button>
+		sort the products according to
+		<button id="btnSortProdNamn">Prod Name</button>
+		<button id="btnSortProdPrice">price</button>
+		<button id="btnSortProdColor">Färg</button>
 	</p>
 	
 	<p>
-		Antal resultat: <input id="inputAntalResultat" placeholder="500"/>
+		Antal resultat: <input id="inputAntalResultat" placeholder="10"/>
 	</p>
 	
-	<table id="tableVisaDjur"></table>
+	<table id="tableShowProd"></table>
     
 
 </body>
