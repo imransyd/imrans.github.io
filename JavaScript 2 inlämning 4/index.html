@@ -1,63 +1,143 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Firebase-funktioner för att sortera och filtrera+</title>
-    
-<script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCwxE83nO6_NU8VBQA4SM-dFxt7fCHS58A",
-    authDomain: "webshop-f7722.firebaseapp.com",
-    databaseURL: "https://webshop-f7722.firebaseio.com",
-    projectId: "webshop-f7722",
-    storageBucket: "webshop-f7722.appspot.com",
-    messagingSenderId: "276600456607"
-  };
-  firebase.initializeApp(config);
-</script>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Firebase webshop inlämning 4</title>
+    <script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCwxE83nO6_NU8VBQA4SM-dFxt7fCHS58A"
+            , authDomain: "webshop-f7722.firebaseapp.com"
+            , databaseURL: "https://webshop-f7722.firebaseio.com"
+            , projectId: "webshop-f7722"
+            , storageBucket: "webshop-f7722.appspot.com"
+            , messagingSenderId: "276600456607"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <style>
+    /*
+button styling
+*/
+
+button {
+	background-color:#3bb3e0;
+	padding:10px;
+	position:relative;
+	font-family: 'Open Sans', sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	color:#fff;
+	border: solid 1px #186f8f;
+	background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+	background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0, rgb(44,160,202)),
+	color-stop(1, rgb(62,184,229))
+	);
+	-webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;
+	-moz-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;
+	box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+button::before {
+	background-color:#ccd0d5;
+	content:"";
+	display:block;
+	position:absolute;
+	width:100%;
+	height:100%;
+	padding:8px;
+	left:-8px;
+	top:-8px;
+	z-index:-1;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
+	-moz-box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
+	-o-box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
+	box-shadow: inset 0px 1px 1px #909193, 0px 1px 0px #fff;
+}
+
+button:active {
+	padding-bottom:9px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:11px;
+	top:1px;
+	background-image: linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+	background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0, rgb(62,184,229)),
+	color-stop(1, rgb(44,160,202))
+	);
+}
+/*------------*/
+
+/* basic elements */
+
+body { 
+	font: 1em georgia, sans-serif;
+	line-height: 1.88889;
+	color: #555753; 
+	background: #fff url(http://csszengarden.com/001/blossoms.jpg) no-repeat bottom right; 
+	margin: 2em; 
+	padding: 0;
+	}
+p { 
+	margin-top: 0; 
+	text-align: justify;
+	padding-bottom: 5px;
+	}
+</style>
 </head>
+
 <body>
-    <!-- 
-Make a Web page 
-+ where you can add items to the firebase database. 
-
-+ Each item must have at least two properties.  
-
-+ example a shop where every product (properties:  name and price.
-
-+- see the items in a list,
-
-+- can sort and filter. 
-
-For example, you can make a button to "sort by name", one for "sort by price" and so on. (At least two possible sorts.)
--->
-    <h1>Product catalog</h1>
+    <h1>Product Webshop</h1>
+    <p> 
+	<div>Product Catalogue</div>
+        <input id="prodName" type="text" placeholder="product Name" />
+        <input type="text" placeholder="Maker Name" id="prodCatagories" />
+        <input id="indiAmount" type="text" placeholder="individual Amount" />
+        <input id="prodColor" type="text" placeholder="product Color" />
+        <button id="addButton">Add your products</button>
+    </p>
+	<p>Sort the prod according to:</p>
 	<p>
-		store in your products
-		<input id="ProdNamn" type="text" placeholder="Product Name"/>
-		<input id="ProdPrice" type="text" placeholder="Product price"/>
-		<input id="ProdColor" type="text" placeholder="Produuct Color"/>
-        
-		<button id="addButton">add products</button>
-	</p>
-	
-	<p>
-		sort the products according to
-		<button id="btnSortProdNamn">Prod Name</button>
-		<button id="btnSortProdPrice">price</button>
-		<button id="btnSortProdColor">Färg</button>
-	</p>
-	
-	<p>
-		Antal resultat: <input id="inputAntalResultat" placeholder="10"/>
-	</p>
-	
-	<table id="tableShowProd"></table>
+        <button id="btnSortName">Product Name</button>
+        <button id="btnSortFamily">Maker Name</button>
+        <button id="btnSortAmount">Amount</button>
+        <button id="btnSortColor">Color</button>
+    </p>
+    <p>
+        <div id="warnig"></div>
+        amount of products to be shown in the
+        <input id="showNoOfProdInList" placeholder="10" /> 
+        <button id ="nextTen">next 10</button>
+    <table id="productListTb"></table>
+    </p>
     
-
 </body>
+
 </html>
