@@ -74,6 +74,7 @@ class TwoButtons extends React.Component {
         );
     }
 }
+
  ReactDOM.render (
         <TwoButtons />,
         document.getElementById('button_App')
