@@ -1,114 +1,195 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>inlämning 5</title>
-<style>
-
-body{
-background:#E6EEF6;
-margin-left:5%;
-}
-.wrap{
-margin-left:20px;
-}
-
-.shadow1,.shadow2,.shadow3{
-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
-}
-/*****************************************************************dashed border
-****************************************************************/
-#app-calc, #button_App, #app-root{
-width:87%;
-height:87%;
-margin-left:6%;
-margin-top:3%;
-border:2px dashed #F7EEEE;
-border-radius:5px;
-}
-.box{
-width:70%;
-height:200px;
-float:left;
-background-color:white; 
-margin:25px 5px;
-border-radius:15px;
-}
-.box1{
-background-color: #9ED9EB;
-}
-.box2{
-background-color: #9EB3EB;
-}
-.box3{
-background-color: #9EEBBF;
-}
-/**********box shadow************************/
-
-.shadow1, .shadow2, .shadow3{
-position:relative;
-}
-.shadow1,.shadow2,.shadow3{
-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
-}
-.shadow2:before, .shadow2:after{
-position:absolute;
-content:"";
-top:14px;bottom:14px;left:0;right:0;
-box-shadow:0 0 25px 3px #548E7F;
-border-radius:100px/10px;
-z-index:-1;
-}
-.shadow1:before, .shadow1:after{
-position:absolute;
-content:"";
-box-shadow:0 10px 25px 20px #518C96;
-top:40px;left:10px;bottom:50px;
-width:15%;
-z-index:-1;
--webkit-transform: rotate(-8deg);
--moz-transform: rotate(-8deg);
-transform: rotate(-8deg);
-}
-.shadow1:after{
--webkit-transform: rotate(8deg);
--moz-transform: rotate(8deg);
-transform: rotate(8deg);
-right: 10px;left: auto;
-}
-.shadow3:before, .shadow3:after{
-position:absolute;
-content:"";
-top:100px;bottom:5px;left:30px;right:30px;
-z-index:-1;
-box-shadow:0 0 40px 13px #486685;
-border-radius:100px/20px; 
-}
-</style>
-
-<script src="https://unpkg.com/babel-standalone@6.24.0/babel.min.js"></script>
-
-  </head>
-  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>inlämning 5</title>
+  <script src="https://unpkg.com/babel-standalone@6.24.0/babel.min.js"></script>
+</head>
 <body>
-  
-<script type="text/jsx" src="script.js"></script>
-<script type="text/jsx" src="add.js"></script>
-<script type="text/jsx" src="button.js"></script>	
-  
-<h1>inlämning 5</h1>
-<div class="box box1 shadow1">  
+  <h1>inlämning 5</h1>
 <div id = "app-root"><h2>without react !!</h2></div>
-</div>
-
-<div class="box box2 shadow2">
 <div id = "app-calc"><h2>without react !!</h2></div>
+<div id = "button_App"><h2>without react !!</h2></div>
+
+<script>
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+
+class Mirror extends React.Component {
+
+constructor(props) {
+super(props);
+this.state = {
+msg: ""
+};
+this.changeText = this.changeText.bind(this)
+}
+
+changeText (event) {
+let newText = event.target.value; 
+this.setState({msg: newText}); 
+}
+
+render () {
+return ( 
+
+<div><p>mirror text</p>
+<div>
+<input type="text" placeholder="Text here" onKeyUp={this.changeText} />
+<div>{this.state.msg}</div>
+</div>      
+</div>
+);
+
+}
+
+
+}
+
+ReactDOM.render(
+<Mirror />,
+document.getElementById('app-root')
+)
+
+
+class App extends React.Component {
+constructor(props) {
+super(props);
+this.state = {
+num1:"",
+num2:""
+};
+this.input1 = this.input1.bind(this)
+this.input2 = this.input2.bind(this)
+}
+
+input1 (event) {
+let number1 = event.target.value;
+this.setState({num1: number1});
+}
+
+input2 (event) {
+let number2 = event.target.value;
+this.setState({num2: number2});
+}
+
+calculate () {
+return Number(this.state.num1) + Number(this.state.num2); 
+};
+
+render () {
+return (
+
+<div>
+<p> </p>
+<div>
+<input type="number" 
+className="form-control input-lg"  
+placeholder="write a number"
+onChange={this.input1} />
+</div>
+<div> + </div>
+<div>
+<input 
+type="number"   
+placeholder="write a number"
+onChange={this.input2} />
+
+</div>
+<div> = <span>   </span>
+{this.calculate()}
+</div>
+</div>
+);
+}
+}
+
+ReactDOM.render(
+<App />,
+document.getElementById('app-calc')
+)
+
+
+
+class TwoButtons extends React.Component {
+
+constructor(props) {
+super(props);
+this.state = {
+classNameA:"buttonA",
+classNameB:"buttonA",    
+textDisplay: "",
+valueA: 0,
+valueB: 0 ,
+spanDisplay1: "none",
+spanDisplay2: "none"    
+};
+
+this.handleBttnA = this.handleBttnA.bind(this)
+this.handleBttnB = this.handleBttnB.bind(this)
+}
+
+handleBttnA (event) {
+this.setState({classNameA: "buttonB", classNameB: "buttonA"});
+this.setState({textDisplay: event.target.innerHTML});
+this.setState({valueA: this.state.valueA +1});
+this.setState({spanDisplay1: "inline"});
+this.setState({spanDisplay2: "none"});
+
+}
+handleBttnB (event) {
+this.setState({classNameB: "buttonB", classNameA: "buttonA"});
+this.setState({textDisplay: event.target.innerHTML});
+this.setState({valueB: this.state.valueB +1});
+this.setState({spanDisplay2: "inline"});
+this.setState({spanDisplay1: "none"});
+
+}
+
+render () {
+
+return (
+<div> <p> </p>
+<div>
+<div>
+<button className={this.state.classNameA}
+onClick={this.handleBttnA}>
+clicked the right button
+</button>    
+</div>
+<div className="col-sm-2">
+<button className={this.state.classNameB}
+onClick={this.handleBttnB}>
+clicked the left button
+</button> 
 </div>
 
-<div class="box box3 shadow3">
-<div id = "button_App"><h2>without react !!</h2></div></div>
+</div>
+<div className="row">
+<div className="col-sm-4"></div>
+<div className="col-sm-4" id="part3">
+{this.state.textDisplay}
+<span style={{display: this.state.spanDisplay1}}>
+{this.state.valueA}
+</span>
+<span style={{display: this.state.spanDisplay2}}>
+{this.state.valueB}
+</span>
+</div>
+<div className="col-sm-4"></div>
+</div>    
+</div>        
+);
+}
+}
+ReactDOM.render (
+<TwoButtons />,
+document.getElementById('button_App')
+);
 
-
+</script>
 </body>
 </html>
