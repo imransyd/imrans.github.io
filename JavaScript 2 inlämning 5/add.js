@@ -9,7 +9,7 @@ let numList = [
 	}
 ];
 
-class App extends React.Component {
+class addApp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -68,6 +68,6 @@ class Form extends React.Component {
 }
 
 ReactDOM.render(
-  <App> </App>,
+  <addApp />,
   document.getElementById('app-calc')
 )
