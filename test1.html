@@ -1,0 +1,256 @@
+
+<!DOCTYPE html> 
+<html lang="en">
+<head> 
+  <title>React-exercises</title>
+  <meta charset="utf-8" /> 
+    
+  <!--    bootstrap-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  <!--    JSX-->
+  <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    
+    <style>
+        .row {
+            margin-top: 100px;
+        }
+        #part1 {
+            font-size: 25pt;
+            color: deeppink;
+        }
+        #part2 {
+            font-size: 20pt;
+            color: deeppink;
+        }
+        #part3 {
+            font-size: 45pt;
+            color: deeppink;
+        }
+        body {
+            background-image: url("pattern.jpg");           
+        }
+        h1{
+            font-size: 45pt;
+            color: deeppink;
+        }
+        .backnd {
+            background-color: rgba(51, 0, 0, 0.6);
+        }
+        .classone {
+            background-color: rgba(51, 0, 0, 0.6);
+            color: white;
+        }
+        .classtwo {
+            background-color: rgba(255, 20, 147, 0.6);
+            border: 1px solid rgba(51, 0, 0, 0.6);
+            color: white;
+        }
+        .btn:hover {
+            color: #ffb3b3;
+        }
+
+    </style>
+  </head>
+    
+<body>
+  <div class="container">
+    <h1 class="text-center backnd">React exercises</h1>  
+    <div class="row" id="part1"></div>
+    <div class="row" id="part2"></div>
+    <div id="part3"></div>  
+  </div>
+    
+    
+    <script type="text/babel">
+
+
+
+class One extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            o: ""
+        };
+        this.changeText = this.changeText.bind(this)
+    }
+    
+    changeText (event) {
+        let newText = event.target.value; 
+        this.setState({o: newText}); 
+    }
+    
+    render () {
+        return ( 
+            
+            <div>
+                <div className="col-sm-12">
+                    <input 
+                        type="text" 
+                        className="form-control input-lg" 
+                        placeholder="write something fun here..."
+                        onKeyUp={this.changeText} />
+                    <div className="backnd">{this.state.o}</div>
+                </div>      
+            </div>
+        );
+    
+    }
+
+}
+
+ ReactDOM.render (
+        <One />,
+        document.getElementById('part1')
+        );
+
+
+class Two extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+           num1:"",
+           num2:""
+        };
+        this.input1 = this.input1.bind(this)
+        this.input2 = this.input2.bind(this)
+    }
+    
+    input1 (event) {
+        let number1 = event.target.value;
+        this.setState({num1: number1});
+    }
+    
+    input2 (event) {
+        let number2 = event.target.value;
+        this.setState({num2: number2});
+    }
+    
+    calculate () {
+        return Number(this.state.num1) + Number(this.state.num2); 
+    };
+    
+    render () {
+        return (
+            
+            <div>
+                <div className="col-sm-4">
+                    <input 
+                        type="text" 
+                        className="form-control input-lg"  
+                        placeholder="write a number"
+                        onChange={this.input1}
+                     />
+                 </div>
+                <div className="col-sm-1 backnd text-center"> + </div>
+                <div className="col-sm-4">
+                    <input 
+                        type="text" 
+                        className="form-control input-lg"  
+                        placeholder="write a number"
+                        onChange={this.input2}
+                     />
+                </div>
+                <div className="col-sm-1 backnd"> = </div>
+                <div className="col-sm-2 backnd">
+                        {this.calculate()}
+                </div>
+            </div>
+        );
+    }
+}
+ ReactDOM.render (
+        <Two />,
+        document.getElementById('part2')
+        );
+
+class Three extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+           className1:"classone btn",
+           className2:"classone btn",    
+           textDisplay: "",
+           value1: 0,
+           value2: 0 ,
+           spanDisplay1: "none",
+           spanDisplay2: "none"    
+        };
+        
+        this.clickOnBtn1 = this.clickOnBtn1.bind(this)
+        this.clickOnBtn2 = this.clickOnBtn2.bind(this)
+    }
+    
+    clickOnBtn1 (event) {
+        this.setState({className1: "classtwo btn", className2: "classone btn"});
+        this.setState({textDisplay: event.target.innerHTML});
+        this.setState({value1: this.state.value1 +1});
+        this.setState({spanDisplay1: "inline"});
+        this.setState({spanDisplay2: "none"});
+
+    }
+    clickOnBtn2 (event) {
+        this.setState({className2: "classtwo btn", className1: "classone btn"});
+        this.setState({textDisplay: event.target.innerHTML});
+        this.setState({value2: this.state.value2 +1});
+        this.setState({spanDisplay2: "inline"});
+        this.setState({spanDisplay1: "none"});
+
+    }
+   
+    render () {
+        
+        return (
+          <div> 
+            <div className="row">
+                <div className="col-sm-4"></div>
+                <div className="col-sm-2">
+                    <button className={this.state.className1}
+                            onClick={this.clickOnBtn1}
+                        >
+                        Stand up
+                    </button>    
+                </div>
+                <div className="col-sm-2">
+                    <button className={this.state.className2}
+                            onClick={this.clickOnBtn2}
+                        >
+                        Sit down
+                    </button> 
+                </div>
+                <div className="col-sm-4"></div>
+            </div>
+            <div className="row">
+                <div className="col-sm-4"></div>
+                <div className="col-sm-4" id="part3">
+                    {this.state.textDisplay}
+                    <span style={{display: this.state.spanDisplay1}}>
+                        {this.state.value1}
+                    </span>
+                    <span style={{display: this.state.spanDisplay2}}>
+                        {this.state.value2}
+                    </span>
+                </div>
+                <div className="col-sm-4"></div>
+            </div>    
+        </div>        
+        );
+    }
+}
+ ReactDOM.render (
+        <Three />,
+        document.getElementById('part3')
+        );
+
+    
+    </script>  
+    
+</body>
+</html>
