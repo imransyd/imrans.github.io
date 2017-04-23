@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>inlämning 5</title>
+  <script src="https://unpkg.com/babel-standalone@6.24.0/babel.min.js"></script>
+</head>
+<body>
+  <h1>inlämning 5</h1>
+<div id = "app-root"><h2>without react !!</h2></div>
+<div id = "app-calc"><h2>without react !!</h2></div>
+<div id = "button_App"><h2>without react !!</h2></div>
+
+<script>
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+
+
+class Mirror extends React.Component {
+
+constructor(props) {
+super(props);
+this.state = {
+msg: ""
+};
+this.changeText = this.changeText.bind(this)
+}
+
+changeText (event) {
+let newText = event.target.value; 
+this.setState({msg: newText}); 
+}
+
+render () {
+return ( 
+
+<div><p>mirror text</p>
+<div>
+<input type="text" placeholder="Text here" onKeyUp={this.changeText} />
+<div>{this.state.msg}</div>
+</div>      
+</div>
+);
+
+}
+
+
+}
+
+ReactDOM.render(
+<Mirror />,
+document.getElementById('app-root')
+)
+
+
+class App extends React.Component {
+constructor(props) {
+super(props);
+this.state = {
+num1:"",
+num2:""
+};
+this.input1 = this.input1.bind(this)
+this.input2 = this.input2.bind(this)
+}
+
+input1 (event) {
+let number1 = event.target.value;
+this.setState({num1: number1});
+}
+
+input2 (event) {
+let number2 = event.target.value;
+this.setState({num2: number2});
+}
+
+calculate () {
+return Number(this.state.num1) + Number(this.state.num2); 
+};
+
+render () {
+return (
+
+<div>
+<p> </p>
+<div>
+<input type="number" 
+className="form-control input-lg"  
+placeholder="write a number"
+onChange={this.input1} />
+</div>
+<div> + </div>
+<div>
+<input 
+type="number"   
+placeholder="write a number"
+onChange={this.input2} />
+
+</div>
+<div> = <span>   </span>
+{this.calculate()}
+</div>
+</div>
+);
+}
+}
+
+ReactDOM.render(
+<App />,
+document.getElementById('app-calc')
+)
+
+
+
+class TwoButtons extends React.Component {
+
+constructor(props) {
+super(props);
+this.state = {
+classNameA:"buttonA",
+classNameB:"buttonA",    
+textDisplay: "",
+valueA: 0,
+valueB: 0 ,
+spanDisplay1: "none",
+spanDisplay2: "none"    
+};
+
+this.handleBttnA = this.handleBttnA.bind(this)
+this.handleBttnB = this.handleBttnB.bind(this)
+}
+
+handleBttnA (event) {
+this.setState({classNameA: "buttonB", classNameB: "buttonA"});
+this.setState({textDisplay: event.target.innerHTML});
+this.setState({valueA: this.state.valueA +1});
+this.setState({spanDisplay1: "inline"});
+this.setState({spanDisplay2: "none"});
+
+}
+handleBttnB (event) {
+this.setState({classNameB: "buttonB", classNameA: "buttonA"});
+this.setState({textDisplay: event.target.innerHTML});
+this.setState({valueB: this.state.valueB +1});
+this.setState({spanDisplay2: "inline"});
+this.setState({spanDisplay1: "none"});
+
+}
+
+render () {
+
+return (
+<div> <p> </p>
+<div>
+<div>
+<button className={this.state.classNameA}
+onClick={this.handleBttnA}>
+clicked the right button
+</button>    
+</div>
+<div className="col-sm-2">
+<button className={this.state.classNameB}
+onClick={this.handleBttnB}>
+clicked the left button
+</button> 
+</div>
+
+</div>
+<div className="row">
+<div className="col-sm-4"></div>
+<div className="col-sm-4" id="part3">
+{this.state.textDisplay}
+<span style={{display: this.state.spanDisplay1}}>
+{this.state.valueA}
+</span>
+<span style={{display: this.state.spanDisplay2}}>
+{this.state.valueB}
+</span>
+</div>
+<div className="col-sm-4"></div>
+</div>    
+</div>        
+);
+}
+}
+ReactDOM.render (
+<TwoButtons />,
+document.getElementById('button_App')
+);
+
+</script>
+</body>
+</html>
