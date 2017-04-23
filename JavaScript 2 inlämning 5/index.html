@@ -4,7 +4,88 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>inlämning 5</title>
-   <link rel="stylesheet" type="text/css" href="imransyd.github.io/JavaScript 2 inlämning 5/index.css">
+   <style>
+     
+     body{
+  background:#E6EEF6;
+  margin-left:5%;
+}
+.wrap{
+  margin-left:20px;
+}
+
+.shadow1,.shadow2,.shadow3{
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+ }
+  /*****************************************************************dashed border
+****************************************************************/
+#app-calc, #button_App, #app-root{
+  width:87%;
+  height:87%;
+  margin-left:6%;
+  margin-top:3%;
+  border:2px dashed #F7EEEE;
+  border-radius:5px;
+}
+.box{
+  width:70%;
+  height:200px;
+  float:left;
+  background-color:white; 
+  margin:25px 5px;
+  border-radius:15px;
+}
+.box1{
+  background-color: #9ED9EB;
+}
+.box2{
+  background-color: #9EB3EB;
+}
+.box3{
+  background-color: #9EEBBF;
+}
+/**********box shadow************************/
+
+.shadow1, .shadow2, .shadow3{
+  position:relative;
+}
+.shadow1,.shadow2,.shadow3{
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+}
+.shadow2:before, .shadow2:after{
+  position:absolute;
+  content:"";
+  top:14px;bottom:14px;left:0;right:0;
+  box-shadow:0 0 25px 3px #548E7F;
+  border-radius:100px/10px;
+  z-index:-1;
+}
+.shadow1:before, .shadow1:after{
+  position:absolute;
+  content:"";
+  box-shadow:0 10px 25px 20px #518C96;
+  top:40px;left:10px;bottom:50px;
+  width:15%;
+  z-index:-1;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+.shadow1:after{
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  transform: rotate(8deg);
+  right: 10px;left: auto;
+}
+.shadow3:before, .shadow3:after{
+  position:absolute;
+  content:"";
+  top:100px;bottom:5px;left:30px;right:30px;
+  z-index:-1;
+  box-shadow:0 0 40px 13px #486685;
+  border-radius:100px/20px; 
+}
+  </style>
   
   <script src="https://unpkg.com/babel-standalone@6.24.0/babel.min.js"></script>
 </head>
@@ -13,9 +94,197 @@
 <div id = "app-root"><h2>without react !!</h2></div>
 <div id = "app-calc"><h2>without react !!</h2></div>
 <div id = "button_App"><h2>without react !!</h2></div>
+<script>
+  var React = require('react');
+var ReactDOM = require('react-dom');
 
-<script type="text/jsx" src="imransyd.github.io/JavaScript 2 inlämning 5/script.js"></script>
-<script type="text/jsx" src="imransyd.github.io/JavaScript 2 inlämning 5/add.js"></script>
-<script type="text/jsx" src="imransyd.github.io/JavaScript 2 inlämning 5/button.js"></script>
+
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			msg: ''
+		};
+		this.handleKeyUp = this.handleKeyUp.bind(this);
+	}
+	handleKeyUp(event) {
+		console.log('handleKeyUp');
+		this.setState({
+			msg: event.target.value
+		});
+	}
+	render() {
+		return (
+		  <div className="myform">
+		  <h2>* 1st part</h2>
+			<MyForm handleKeyUp={this.handleKeyUp} msg={this.state.msg} />
+		  </div>
+		);
+	}
+}
+
+function MyForm(props) {
+	return <div>
+    	<input type="text" onKeyUp={props.handleKeyUp} /> <br/>
+    	<span>{props.msg}</span>
+    </div>;
+}
+
+ReactDOM.render(
+  <App></App>,
+  document.getElementById('app-root')
+)
+
+
+let numList = [
+	{
+		num1: 11,
+		num2: 89
+	}
+];
+
+class addApp extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			number1: 0,
+			num2: 0,
+			total:0
+		};
+		this.formInputnum1KeyUp = this.formInputnum1KeyUp.bind(this);
+		this.formInputnum2KeyUp = this.formInputnum2KeyUp.bind(this);
+		
+	}
+	
+	formInputnum1KeyUp(event) {
+		this.setState({
+			number1: Number(event.target.value)
+		})
+	}
+	formInputnum2KeyUp(event) {
+		this.setState({
+			num2: Number(event.target.value)
+		})
+	}
+	
+	render() {
+		let numList1 = numList[0];
+		
+		return (
+			<div>
+			<Info item={ {num1: this.state.number1, num2: this.state.num2 } } />
+			<Form 
+				handlenum1KeyUp={this.formInputnum1KeyUp}
+				handlenum2KeyUp={this.formInputnum2KeyUp} />
+			</div>
+		);
+	}
+}
+class Info extends React.Component {
+  
+	render() {
+		let i = this.props.item;
+		return <p>addition result :{i.num1+i.num2} </p>;
+		 
+	}
+}
+class Form extends React.Component {
+	render() {
+		return <p>
+			<input type="number" 
+				placeholder="place 1st number"
+				onKeyUp={this.props.handlenum1KeyUp}/>
+			<input type="number" 
+				placeholder="place 2nd number"
+				onKeyUp={this.props.handlenum2KeyUp}/>
+			</p>;
+	}
+}
+
+ReactDOM.render(
+  <addApp />,
+  document.getElementById('app-calc')
+)
+
+
+class TwoButtons extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+           classNameA:"buttonA",
+           classNameB:"buttonA",    
+           textDisplay: "",
+           valueA: 0,
+           valueB: 0 ,
+           spanDisplay1: "none",
+           spanDisplay2: "none"    
+        };
+        
+        this.handleBttnA = this.handleBttnA.bind(this)
+        this.handleBttnB = this.handleBttnB.bind(this)
+    }
+    
+    handleBttnA (event) {
+        this.setState({classNameA: "buttonB", classNameB: "buttonA"});
+        this.setState({textDisplay: event.target.innerHTML});
+        this.setState({valueA: this.state.valueA +1});
+        this.setState({spanDisplay1: "inline"});
+        this.setState({spanDisplay2: "none"});
+
+    }
+    handleBttnB (event) {
+        this.setState({classNameB: "buttonB", classNameA: "buttonA"});
+        this.setState({textDisplay: event.target.innerHTML});
+        this.setState({valueB: this.state.valueB +1});
+        this.setState({spanDisplay2: "inline"});
+        this.setState({spanDisplay1: "none"});
+
+    }
+   
+    render () {
+        
+        return (
+          <div> 
+            <div className="row">
+                <div className="col-sm-3"></div>
+                <div className="col-sm-3">
+                    <button className={this.state.classNameA}
+                            onClick={this.handleBttnA}>
+                        clicked the right button
+                    </button>    
+                </div>
+                <div className="col-sm-2">
+                    <button className={this.state.classNameB}
+                            onClick={this.handleBttnB}>
+                        clicked the left button
+                    </button> 
+                </div>
+                <div className="col-sm-4"></div>
+            </div>
+            <div className="row">
+                <div className="col-sm-4"></div>
+                <div className="col-sm-4" id="part3">
+                    {this.state.textDisplay}
+                    <span style={{display: this.state.spanDisplay1}}>
+                        {this.state.valueA}
+                    </span>
+                    <span style={{display: this.state.spanDisplay2}}>
+                        {this.state.valueB}
+                    </span>
+                </div>
+                <div className="col-sm-4"></div>
+            </div>    
+        </div>        
+        );
+    }
+}
+ ReactDOM.render (
+        <TwoButtons />,
+        document.getElementById('button_App')
+        );
+  
+  </script>
+
 </body>
 </html>
