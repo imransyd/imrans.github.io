@@ -33,6 +33,7 @@ class addApp extends React.Component {
 		})
 	}
 	
+	
 	render() {
 		let numList1 = numList[0];
 		
