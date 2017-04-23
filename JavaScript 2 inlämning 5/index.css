@@ -1,0 +1,79 @@
+body{
+  background:#E6EEF6;
+  margin-left:5%;
+}
+.wrap{
+  margin-left:20px;
+}
+
+.shadow1,.shadow2,.shadow3{
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+ }
+  /*****************************************************************dashed border
+****************************************************************/
+#app-calc, #button_App, #app-root{
+  width:87%;
+  height:87%;
+  margin-left:6%;
+  margin-top:3%;
+  border:2px dashed #F7EEEE;
+  border-radius:5px;
+}
+.box{
+  width:70%;
+  height:200px;
+  float:left;
+  background-color:white; 
+  margin:25px 5px;
+  border-radius:15px;
+}
+.box1{
+  background-color: #9ED9EB;
+}
+.box2{
+  background-color: #9EB3EB;
+}
+.box3{
+  background-color: #9EEBBF;
+}
+/**********box shadow************************/
+
+.shadow1, .shadow2, .shadow3{
+  position:relative;
+}
+.shadow1,.shadow2,.shadow3{
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+}
+.shadow2:before, .shadow2:after{
+  position:absolute;
+  content:"";
+  top:14px;bottom:14px;left:0;right:0;
+  box-shadow:0 0 25px 3px #548E7F;
+  border-radius:100px/10px;
+  z-index:-1;
+}
+.shadow1:before, .shadow1:after{
+  position:absolute;
+  content:"";
+  box-shadow:0 10px 25px 20px #518C96;
+  top:40px;left:10px;bottom:50px;
+  width:15%;
+  z-index:-1;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+.shadow1:after{
+  -webkit-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+  transform: rotate(8deg);
+  right: 10px;left: auto;
+}
+.shadow3:before, .shadow3:after{
+  position:absolute;
+  content:"";
+  top:100px;bottom:5px;left:30px;right:30px;
+  z-index:-1;
+  box-shadow:0 0 40px 13px #486685;
+  border-radius:100px/20px; 
+}
