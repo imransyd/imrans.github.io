@@ -1,0 +1,220 @@
+<!DOCTYPE html> 
+<html lang="en">
+	<head> 
+		<title>ranking-survey</title>
+		<meta charset="utf-8" /> 
+
+		<!--    bootstrap-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<!--    JSX-->
+		<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+		<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+		<style>
+#myrankingList {
+  width: 50%;
+  margin: 0 auto;
+}
+h1 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 65px; line-height: 60px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; }
+
+
+#listcss{ color: #7a7c7f; font-size: 20px; font-family: "Libre Baskerville", serif; line-height: 20px; text-align: center; text-shadow: 0 1px 1px #fff; padding-top: 20px; }
+
+
+body
+{
+
+	background color: #555753;
+	background: #fff url(http://csszengarden.com/001/blossoms.jpg) no-repeat bottom right; 
+	margin: 0; 
+	padding: 0;
+}
+		</style>
+
+
+
+		<script type="text/babel">
+
+        let ranking1 = {
+            spotName: 'Bali',
+            country: 'Indonesia' ,
+            rankings: 1
+        }
+
+        let ranking2 = {
+            spotName: 'London',
+            country: 'United Kingdom' ,
+            rankings: 5
+        }
+
+        let ranking3 = {
+            spotName: 'crete',
+            country: 'Greece' ,
+            rankings: 2
+        }
+        let rankingList = [ranking1, ranking2, ranking3];
+
+        class App extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    list: rankingList,
+                    addspotName: "",
+                    addcountry: "",
+                    addranking: ""
+                };
+
+    this.spotNameInputValue = this.spotNameInputValue.bind(this);
+    this.countryInputValue = this.countryInputValue.bind(this); 
+    this.rankingInputValue = this.rankingInputValue.bind(this); 
+
+    this.addBttn = this.addBttn.bind(this);
+    this.addToList = this.addToList.bind(this);
+
+}
+
+
+
+
+spotNameInputValue(event) {
+       this.setState ({ addspotName: event.target.value });
+ }
+countryInputValue(event) {
+       this.setState ({ addcountry: event.target.value });
+}
+rankingInputValue(event) {
+       this.setState ({ addranking: event.target.value });
+}
+//creates a new object and adds it to the list
+addBttn(event) {
+    let newDest= {
+       spotName: this.state.addspotName,
+       country: this.state.addcountry ,
+       rankings: this.state.addranking
+   }; 
+    const newList = this.state.list;
+    newList.push(newDest);
+    this.setState ({
+        list: newList
+    });
+}
+
+
+
+addToList(event) {
+     this.setState ({
+         addspotName: rankingList[event.target.id].spotName,
+         addcountry: rankingList[event.target.id].country,
+         addranking: rankingList[event.target.id].rankings
+     });
+
+}
+
+
+
+render () {
+return (
+<div>
+<MyList 
+        addToList={this.addToList}
+        list={this.state.list}
+
+        addspotName={this.state.addspotName}
+        addcountry={this.state.addcountry}
+        addranking={this.state.addranking} />
+<AddForm 
+        spotNameInputValue={this.spotNameInputValue}
+        countryInputValue={this.countryInputValue}
+        rankingInputValue={this.rankingInputValue}
+
+        addBttn={this.addBttn}
+        list={this.state.list}
+
+        addspotName={this.state.addspotName}
+        addcountry={this.state.addcountry}
+        addranking={this.state.addranking} />
+			</div>
+);
+}
+
+        }
+        class MyList extends React.Component {
+
+            render () {
+                let key = 0; 
+                let list = rankingList.map(item => 
+                    <li onClick={this.props.addToList}
+                        id={key++} key={key}>
+                        spotName: {item.spotName} <br />
+                        country: {item.country} <br />
+                        ranking: {item.rankings} <br />
+			</li>                     
+                 );
+                return (
+
+                            <div id="listcss"><ul>{list}</ul></div>
+
+                );
+            }
+
+        } 
+
+
+        class AddForm extends React.Component {
+            render () {
+                return (
+                    <form>    
+                        <input 
+                            type="text" className="form-control inputText" placeholder="spotName"
+                            onChange={this.props.spotNameInputValue}
+                            value={this.props.addspotName}
+                          />
+                        <br />    
+                        <input 
+                            type="text" className="form-control inputText" placeholder="country"
+                            onChange={this.props.countryInputValue}
+                            value={this.props.addcountry}
+                        />
+                        <br />    
+                        <input 
+                            type="number" className="form-control inputText" placeholder="ranking"
+                            onChange={this.props.rankingInputValue}
+                            value={this.props.addranking}
+                        />
+                        <br />    
+                        <button 
+                            type="reset" onClick={this.props.addBttn}
+                            className="btn btnStyle">
+                        Add</button>
+			</form>                        
+                );
+            }
+        }
+
+
+ReactDOM.render (
+            <App />,
+            document.getElementById('myrankingList')
+        );
+		</script>   
+
+
+
+
+	</head>
+
+	<body>
+		<h1>destinanion list</h1>
+	<div id = "outer" style="width:100%">
+		<div id="myrankingList"></div>
+		</div>
+
+
+
+	</body>    
+</html>    
