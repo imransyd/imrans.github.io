@@ -83,6 +83,7 @@ input[type=text], input[type=password] {
 	<body>
 
 <script>
+
 window.addEventListener('load', function(){
 
 	
@@ -125,6 +126,26 @@ gitHubLogin.addEventListener('click', function(event){
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 		// Om autentisering lyckas, så finns användarinfo i user
 		let user = result.user;
+		//console.log(user);
+        console.log(user.displayName);
+		 console.log(user.photoURL);
+		var imgSrc=user.photoURL;
+		
+		//
+		document.getElementById("DisName").innerHTML="name :" + user.displayName;
+		document.getElementById("DP").innerHTML= "<img src= "+imgSrc +">";
+		
+		
+		var b = document.createElement('button');
+
+		b.setAttribute('class', 'btn');
+		b.innerHTML = user.displayName +' button';
+
+		var wrapper = document.getElementById("divWrapper");
+		wrapper.appendChild(b);
+		
+		
+
 		resultPage.style.display='inline';
 		bttnlogin .style.display='none';
 		modal.style.display='none';
@@ -181,9 +202,14 @@ logout.addEventListener('click', function(event){
 
 		</div>
 		<div id ="resultPage">
+			<div id ="DisName"></div>
+			<div id="divWrapper"/>
+			<div id="DP"></div>
+			
 					<button id = "logout" style=" background-color:red">LogOut</button>
-			<div> <img src="https://images.pexels.com/photos/206756/pexels-photo-206756.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" style="width:50%;height:auto;"></div>
+			<div> </div>
 		</div>
+
 
 	</body>
 </html>
