@@ -121,7 +121,7 @@ firebase.database();
 //Lägga till ett objekt:
 
 textBtn.addEventListener('click', function(event){
-	document.getElementById("textInput")="";
+	textarea="";
 	let obj = {
 		name: localStorage.getItem('name'),
 		time: new Date().toLocaleTimeString() + " " + new Date().toDateString(),
