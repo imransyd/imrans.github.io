@@ -121,7 +121,8 @@ firebase.database();
 //Lägga till ett objekt:
 
 textBtn.addEventListener('click', function(event){
-	textarea="";
+	console.log('does it work');
+	
 	let obj = {
 		name: localStorage.getItem('name'),
 		time: new Date().toLocaleTimeString() + " " + new Date().toDateString(),
@@ -129,6 +130,7 @@ textBtn.addEventListener('click', function(event){
 	};
 	console.log('obj is:',obj);
 	firebase.database().ref('fChat/').push(obj);
+	textarea.value="";
 
 
 
