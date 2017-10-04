@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Portfolio</title>
+  <meta charset="utf-8">
+  
   <meta name='description' content='Personal portfolio'>
   <meta name='keywords' content='portfolio, html, css, js, web-development'>
   <meta charset='UTF-8'>
@@ -10,18 +12,18 @@
   
   <style media="screen" type="text/css">
     
-    .home {
+.home {
  height: auto;
  margin-top: 30px;
  padding-top: 1px;
  background-image:  url('https://imransyd.github.io/portfolio%20pics/macbook-2617705_1920.jpg');
-  background-position: fixed;
+ 
   background-size: cover;
       /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+
 }
 
 .title {
@@ -61,6 +63,9 @@
   padding-top: 100px;
   background: url('https://imransyd.github.io/portfolio%20pics/macbook-2617705_1920.jpg') fixed;
   background-size: cover;
+      background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .inner-about {
@@ -84,51 +89,64 @@
 
 
 #portfolio {
-  height: auto;
+
   width: 100%;
   background: url(https://imransyd.github.io/portfolio%20pics/white-pexels-photo-262488.jpeg) fixed;
-  
+    
+     height: auto;
+ margin-top: 30px;
+ padding-top: 1px;
+ 
+  background-size: cover;
+      /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+   /* background-repeat: no-repeat;*/
 }
 
 
 
 
-
+/*
 .contacts {
-  height: 600px;
-  padding-top: 100px;
+  height: auto;
+ 
   background: url(https://imransyd.github.io/portfolio%20pics/cube-2031511_1920.jpg) fixed; 
   opacity:0.9;
   background-size: cover;
-}
-
+}*/
+/*
 .inner-contacts {
   border: 2px solid #b1acab;
   border-radius: 25px;
   padding: 50px 0px 50px 0px;
-  margin: 0px 10% 0px 10%;
-  height: 300px;
+  /*margin: 0px 10% 0px 10%;*/
+/*  height: 300px;
   background: rgba(1,1,1,0.4);
-}
+}*/
 
-.footer {
-  background: fixed;
-  opacity:0.5;
-  height: 10px;
-  width: 100%;
-  padding-top: 1px;
+#footer {
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+
 }
 
 .copyright {
   margin-top:5px; 
 }
-
+/*
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
           box-sizing: border-box;
-}
+}*/
  
 
  
@@ -142,6 +160,10 @@
   
   -webkit-box-shadow: 1px 1px 1px #110;
           box-shadow: 5px 5px 5px #111;  
+          box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .grow img {
   height: 400px;
@@ -162,14 +184,14 @@
 /* glitch */
 .glitch {
   color: white;
-  font-size: 100px;
+  font-size: 20px;
   position: relative;
-  width: 400px;
+  width: 300px;
   margin: 0 auto;
 }
 @keyframes noise-anim {
   0% {
-    clip: rect(27px, 9999px, 5px, 0);
+    clip: rect(217px, 9999px, 5px, 0);
   }
   5% {
     clip: rect(59px, 9999px, 100px, 0);
@@ -234,8 +256,9 @@
 }
 .glitch:after {
   content: attr(data-text);
+  font-size: 40px;
   position: absolute;
-  left: 2px;
+  left: 22px;
   text-shadow: -1px 0 red;
   top: 0;
   color: white;
@@ -312,6 +335,7 @@
 }
 .glitch:before {
   content: attr(data-text);
+  font-size: 40px;
   position: absolute;
   left: -2px;
   text-shadow: 1px 0 blue;
@@ -330,8 +354,8 @@
     
    
 </head>
+  <body>
 
-<body>
  
   <!-- Navigation -->
   <nav class='navbar navbar-default navbar-fixed-top'>
@@ -367,11 +391,39 @@
     <div class='home' id='home'>
       <div class='title' align='center '>
         <div class="glitch" data-text="Front End Utvecklare Ec-Utbildning">
-        <h1 style= "color: white;"><strong>Front End Utvecklare Ec-Utbildning</strong></h1></div>
-        <h3 style= "margin-top:10px; margin-bottom:20px; color: white;"><strong>Portfolio of Imran Syed</strong></h3>
+        <h1 style= "color: white;">Front End Utvecklare Ec-Utbildning</h1></div>
+        <h2 style= "margin-top:10px; margin-bottom:20px; color: white;">Portfolio of Imran Syed</h2>
+        
+        <!-- contacts -->
+        <div align='right' style = "margin-right:12px;">
+          <h1 style='margin-top:-20px; color: white;'>
+            Contact me
+            </h1><br>
+          
+          
+          <p class='text' style='margin-top:-20px; color: white;'>by email: imransyd.88@gmail.com</p>
+          
+          <div>
+            
+            <a  href='https://www.facebook.com/imran.syed.73' style='margin-right:5px;'>
+              <button type='button' class='btn btn-success' style=" background-color: dodgerblue;">
+                <i class='fa fa-facebook' style='margin-right:5px;'>             
+              </i> Facebook</button></a>
+            
+            <a  href='https://github.com/imransyd' style='margin-right:5px;'>
+              <button type='button' class='btn btn-success' style=" background-color: grey;">
+                <i class='fa fa-github' style='margin-right:5px;'>             
+              </i> github</button></a>
+            
+            <a href='https://www.linkedin.com/in/imran-syed-23121662/' style='margin-right:5px;'><button type='button' style=" background-color: mediumblue;" class='btn btn-success'><i class='fa fa-linkedin' style='margin-right:5px;'></i> LinkedIn</button></a>
+          </div>
+        </div>
        
       </div>
     </div>
+    
+    
+    
     
     <!-- About -->
     <div class='about' id='about'>
@@ -382,21 +434,25 @@
         <h1 style= "color: white;"><strong>Good day!</strong></h1>
         <p class='text left_align' style= "color: white;"> 
  
-Currently I'm at the finish line of attaining Front End Development Сertificate Ec Utbildning. and have some experience in creating pretty neat applications with less html and more javascript. </br>
-Generally I'm interested in education and communication, which now takes a shape of the interest to internet technologies for education. </br>
+Currently I'm at the finish line of attaining Front End Development Сertificate Ec Utbildning. and have some experience in creating pretty neat applications with less html and more javascript. <br>
+Generally I'm interested in education and communication, which now takes a shape of the interest to internet technologies for education. <br>
 I'll be glad to become a part of the company, which needs a Junior Front End Developer or .</p>
         </div>
     </div>
         
+        
+        
+        
+        
     <!-- Portfolio -->
-    <div class="centered" id='portfolio'>
+    <div id='portfolio'>
      
-          <section id="about">
+          <section id="portfoliot">
        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 exercises">
                     <h2 id="javascriptEx1">Javascript Exercises</h2>
-                    <h3 id="javascriptEx2">Javascript Exercises</h3>
+                 
                     <hr />
                 </div>
             </div>
@@ -492,32 +548,30 @@ I'll be glad to become a part of the company, which needs a Junior Front End Dev
       
     </div>
     
-    <!-- Contacts -->    
+    <!-- Contacts  
     <div class='contacts' id='contacts'>
       <div class='container-fluid'>
-        <div class='inner-contacts' align='right'>
-          <h1 style='margin-top:-20px; color: white;'>Contact me</h1></br>
-          <p class='text' style='margin-top:-20px; color: white;'>by email: imransyd.88@gmail.com</p>
-          <div style='margin-top:20px;'>
-            <a class='white' href='https://www.facebook.com/imran.syed.73' style='margin-right:5px;'>
-              <button type='button' class='btn btn-success' style=" background-color: dodgerblue;">
-                <i class='fa fa-facebook' style='margin-right:5px;'>             
-              </i> Facebook</button></a>
-            
-            <a class='white' href='https://github.com/imransyd' style='margin-right:5px;'>
-              <button type='button' class='btn btn-success' style=" background-color: grey;">
-                <i class='fa fa-github' style='margin-right:5px;'>             
-              </i> github</button></a>
-            
-            <a class='white' href='https://www.linkedin.com/in/imran-syed-23121662/' style='margin-right:5px;'><button type='button' style=" background-color: mediumblue;" class='btn btn-success'><i class='fa fa-linkedin' style='margin-right:5px;'></i> LinkedIn</button></a>
-          </div>
-        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
       </div>
-    </div>
+    </div> -->  
            
     <!-- Footer -->
     <footer>
       <div class='container-fluid'>
+        <div class="row">
         <div class='footer'>
           <ul class='list-inline'>
             <li><a class='other' href='#home'>Home</a></li>
@@ -530,9 +584,12 @@ I'll be glad to become a part of the company, which needs a Junior Front End Dev
           </ul>
           
         </div>
+        </div>
       </div>
     </footer>
            
+
+
 
   <script>
 
