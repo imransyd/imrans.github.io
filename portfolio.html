@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    
   <title>Portfolio</title>
-  <meta charset="utf-8">
-  
   <meta name='description' content='Personal portfolio'>
   <meta name='keywords' content='portfolio, html, css, js, web-development'>
   <meta charset='UTF-8'>
    
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  
-  <style media="screen" type="text/css">
-    
-.home {
- height: auto;
+    <style>
+      
+      #home {
+ height: 600px;
  margin-top: 30px;
  padding-top: 1px;
  background-image:  url('https://imransyd.github.io/portfolio%20pics/macbook-2617705_1920.jpg');
- 
+ background-position: fixed;
   background-size: cover;
       /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -65,15 +67,15 @@
   background-size: cover;
       background-attachment: fixed;
     background-position: center;
-    background-repeat: no-repeat;
+   
 }
 
-.inner-about {
+#inner-about {
   border: 2px solid #b1acab;
   border-radius: 25px;
   padding: 10px 50px 50px 50px;
   margin: 0px 10% 0px 10%;
-  height: 400px;
+  height: auto;
   background: rgba(0,0,42,0.4);
 }
 
@@ -90,7 +92,7 @@
 
 #portfolio {
 
-  width: 100%;
+  
   background: url(https://imransyd.github.io/portfolio%20pics/white-pexels-photo-262488.jpeg) fixed;
     
      height: auto;
@@ -101,53 +103,22 @@
       /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
-   /* background-repeat: no-repeat;*/
+    background-repeat: repeat;
 }
 
 
 
 
-/*
-.contacts {
-  height: auto;
- 
-  background: url(https://imransyd.github.io/portfolio%20pics/cube-2031511_1920.jpg) fixed; 
-  opacity:0.9;
-  background-size: cover;
-}*/
-/*
-.inner-contacts {
-  border: 2px solid #b1acab;
-  border-radius: 25px;
-  padding: 50px 0px 50px 0px;
-  /*margin: 0px 10% 0px 10%;*/
-/*  height: 300px;
-  background: rgba(1,1,1,0.4);
-}*/
 
-#footer {
 
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
 
-}
 
-.copyright {
-  margin-top:5px; 
-}
-/*
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
       -ms-box-sizing: border-box;
           box-sizing: border-box;
-}*/
- 
+}
 
  
 .pic {
@@ -166,8 +137,8 @@
           box-sizing: border-box;
 }
 .grow img {
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
  
   -webkit-transition: all 1s ease;
      -moz-transition: all 1s ease;
@@ -181,224 +152,37 @@
   height: 450px;
 }
 
-/* glitch */
-.glitch {
-  color: white;
-  font-size: 20px;
-  position: relative;
-  width: 300px;
-  margin: 0 auto;
+html,
+body {
+  height: 100%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
-@keyframes noise-anim {
-  0% {
-    clip: rect(217px, 9999px, 5px, 0);
-  }
-  5% {
-    clip: rect(59px, 9999px, 100px, 0);
-  }
-  10% {
-    clip: rect(88px, 9999px, 4px, 0);
-  }
-  15% {
-    clip: rect(76px, 9999px, 37px, 0);
-  }
-  20% {
-    clip: rect(9px, 9999px, 28px, 0);
-  }
-  25% {
-    clip: rect(97px, 9999px, 38px, 0);
-  }
-  30% {
-    clip: rect(5px, 9999px, 57px, 0);
-  }
-  35% {
-    clip: rect(10px, 9999px, 21px, 0);
-  }
-  40% {
-    clip: rect(51px, 9999px, 35px, 0);
-  }
-  45% {
-    clip: rect(6px, 9999px, 16px, 0);
-  }
-  50% {
-    clip: rect(15px, 9999px, 62px, 0);
-  }
-  55% {
-    clip: rect(79px, 9999px, 56px, 0);
-  }
-  60% {
-    clip: rect(86px, 9999px, 89px, 0);
-  }
-  65% {
-    clip: rect(83px, 9999px, 46px, 0);
-  }
-  70% {
-    clip: rect(3px, 9999px, 9px, 0);
-  }
-  75% {
-    clip: rect(9px, 9999px, 76px, 0);
-  }
-  80% {
-    clip: rect(100px, 9999px, 35px, 0);
-  }
-  85% {
-    clip: rect(86px, 9999px, 32px, 0);
-  }
-  90% {
-    clip: rect(54px, 9999px, 62px, 0);
-  }
-  95% {
-    clip: rect(49px, 9999px, 82px, 0);
-  }
-  100% {
-    clip: rect(31px, 9999px, 24px, 0);
-  }
-}
-.glitch:after {
-  content: attr(data-text);
-  font-size: 40px;
-  position: absolute;
-  left: 22px;
-  text-shadow: -1px 0 red;
-  top: 0;
-  color: white;
-  
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim 2s infinite linear alternate-reverse;
+body {
+  font-family: sans-serif;
 }
 
-@keyframes noise-anim-2 {
-  0% {
-    clip: rect(48px, 9999px, 12px, 0);
-  }
-  5% {
-    clip: rect(59px, 9999px, 17px, 0);
-  }
-  10% {
-    clip: rect(79px, 9999px, 18px, 0);
-  }
-  15% {
-    clip: rect(39px, 9999px, 20px, 0);
-  }
-  20% {
-    clip: rect(89px, 9999px, 58px, 0);
-  }
-  25% {
-    clip: rect(3px, 9999px, 1px, 0);
-  }
-  30% {
-    clip: rect(73px, 9999px, 56px, 0);
-  }
-  35% {
-    clip: rect(26px, 9999px, 22px, 0);
-  }
-  40% {
-    clip: rect(32px, 9999px, 79px, 0);
-  }
-  45% {
-    clip: rect(79px, 9999px, 3px, 0);
-  }
-  50% {
-    clip: rect(66px, 9999px, 67px, 0);
-  }
-  55% {
-    clip: rect(43px, 9999px, 6px, 0);
-  }
-  60% {
-    clip: rect(79px, 9999px, 76px, 0);
-  }
-  65% {
-    clip: rect(69px, 9999px, 79px, 0);
-  }
-  70% {
-    clip: rect(4px, 9999px, 39px, 0);
-  }
-  75% {
-    clip: rect(61px, 9999px, 34px, 0);
-  }
-  80% {
-    clip: rect(88px, 9999px, 19px, 0);
-  }
-  85% {
-    clip: rect(42px, 9999px, 82px, 0);
-  }
-  90% {
-    clip: rect(95px, 9999px, 13px, 0);
-  }
-  95% {
-    clip: rect(16px, 9999px, 82px, 0);
-  }
-  100% {
-    clip: rect(53px, 9909px, 14px, 0);
-  }
-}
-.glitch:before {
-  content: attr(data-text);
-  font-size: 40px;
-  position: absolute;
-  left: -2px;
-  text-shadow: 1px 0 blue;
-  top: 0;
-  color: white;
-  background: black;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim-2 3s infinite linear alternate-reverse;
-}
-
-    
-  </style>
-  
-
-    
+      
+    </style>
    
 </head>
+
+
   <body>
 
- 
-  <!-- Navigation -->
-  <nav class='navbar navbar-default navbar-fixed-top'>
-    <div class='container-fluid'>
-      <!-- Brand text-->
-      <div class='navbar-header'>
-        <!-- Menu -->
-        <button type='button' class="navbar-toggle collapsed" 
-                data-toggle="collapse" 
-                data-target="#menu">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-        </button>
-        <div class='navbar-brand'>
-          <p>Imran Syed!</p>
-        </div>
-      </div>
-      
-      <div class='collapse navbar-collapse' id='menu'>
-        <ul class='nav navbar-nav navbar-right'>
-          <li class='active'><a class='white' href='#home'>Home</a></li>
-          <li><a class='white' href='#about'>About</a></li>
-          <li><a class='white' href='#portfolio'>My works</a></li>
-          <li><a class='white' href='#contacts'>Contacts</a></li>
-         </ul>
-      </div>
-      
-    </div>
-  </nav> 
-
   <!-- Home -->
-    <div class='home' id='home'>
-      <div class='title' align='center '>
-        <div class="glitch" data-text="Front End Utvecklare Ec-Utbildning">
-        <h1 style= "color: white;">Front End Utvecklare Ec-Utbildning</h1></div>
-        <h2 style= "margin-top:10px; margin-bottom:20px; color: white;">Portfolio of Imran Syed</h2>
+    <div class='container' id='home'>
+      <div class='title' align='center'>
         
+        <h1 style= "color: white;">Front End Utvecklare Ec-Utbildning</h1>
+        <h2 style= "margin-top:10px; margin-bottom:20px; color: white;">Portfolio of Imran Syed</h2>
+        </div>
         <!-- contacts -->
         <div align='right' style = "margin-right:12px;">
           <h1 style='margin-top:-20px; color: white;'>
             Contact me
-            </h1><br>
+            </h1>
+            <br>
           
           
           <p class='text' style='margin-top:-20px; color: white;'>by email: imransyd.88@gmail.com</p>
@@ -429,7 +213,7 @@
     <div class='about' id='about'>
       <div class="img-circular"></div>
       
-      <div class='inner-about' align='center'>
+      <div id='inner-about' align='center'>
         
         <h1 style= "color: white;"><strong>Good day!</strong></h1>
         <p class='text left_align' style= "color: white;"> 
@@ -445,159 +229,89 @@ I'll be glad to become a part of the company, which needs a Junior Front End Dev
         
         
     <!-- Portfolio -->
-    <div id='portfolio'>
-     
-          <section id="portfoliot">
+    <div id="portfolio">
        <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12 exercises">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                     <h2 id="javascriptEx1">Javascript Exercises</h2>
-                 
+
                     <hr />
                 </div>
             </div>
         
            
-            <div class="row">
-              <div class="grow pic">
-                <div class="col-lg-3 col-md-12 text-center">
+          <div class="row">
+            
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12-6 text-center"><div class ="pic">
                     <a href="https://imransyd.github.io/inl%C3%A4mning1/index.html" target="_blank">                    
-                        <img src="https://imransyd.github.io/portfolio%20pics/BookApi.jpg"  class="exercises">
+                        <img src="https://imransyd.github.io/portfolio%20pics/BookApi.jpg" >
                         <h4>BookAPI</h4>
                     </a>
-                </div>
-                 </div>
+                </div></div>
            
              
              
-               <div class="grow pic">
-                <div class="col-lg-3 col-md-12 text-center">        
+               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12-6 text-center">   <div class ="pic">
                     <a href="https://imransyd.github.io/javascript%20fireBase%20ChatSite/index.html" target="_blank">
-                        <img src="https://imransyd.github.io/portfolio%20pics/chatsite.jpg"  class="exercises">
+                        <img src="https://imransyd.github.io/portfolio%20pics/chatsite.jpg">
                         <h4>Firebase Chatsite (Realtime Database)</h4>
                     </a>
                 </div>
-           </div>
+            </div>
+            </div>
             
            
             
-              <div class="grow pic">
-                <div class="col-lg-3 col-md-12 text-center">
+          <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12-6 text-center"> <div class ="pic">  
                     <a href="https://imransyd.github.io/firebaseAuthentication.html" target="_blank">                    
-                        <img src="https://imransyd.github.io/portfolio%20pics/authentication.jpg"  class="exercises">
-                        <h4>Authentication</h4>
+                        <img src="https://imransyd.github.io/portfolio%20pics/authentication.jpg">
+                        <h4>Authenticationn</h4>
                     </a>
-                </div>
-            
-              </div>
+               </div>
+            </div>
          
            
             
-              <div class="grow pic">
-              <div class="col-sm-12 text-center">
+              <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12-6 text-center">        <div class ="pic"> 
                     <a href="https://imransyd.github.io/Laboration3/index.html" target="_blank">
-                        <img src="https://imransyd.github.io/portfolio%20pics/canvas.jpg" class="exercises">
+                        <img src="https://imransyd.github.io/portfolio%20pics/canvas.jpg" >
                         <h4>Canvas</h4>
-                    </a> 
+                    </a>
                 </div>
-              </div>
-              
+            </div>
             </div> 
          
          
-           <div class="row">
+
+           
               
-                <div class="col-sm-12 exercises">
-                    <h2 id="groupProjects1">Group Projects</h2>
-                    <h3 id="groupProjects2">Group Projects</h3>
-                    <hr />
-                </div>
-              
-            </div>
-         
-         <div class="centered">
-            <div class="row" id="lastRow">
-               
-              <div class="grow pic">
-                <div class="col-lg-5 col-md-12 text-center">
+                <div class="row">
+                <div class="col-lg-6 col-md-12 text-center"><div class ="pic"> 
                     <a href="https://luckyxii.github.io/Team4Colab/index.html" target="_blank">                    
                         <img src="https://imransyd.github.io/portfolio%20pics/musicSite.jpg"  class="exercises">
                         
                         <h5>music Stoe(Authentication-API and jsx-firebase)</h5>
                     </a>
-                </div>
-              </div>
-             <div class="grow pic">
-                <div class="col-lg-5 col-md-12 text-center">        
+                </div></div>
+             
+                <div class="col-lg-6 col-md-12 text-center"><div class ="pic"> 
+                
                     <a href="https://aschera.github.io/No%20stress/index.html" target="_blank">
                         <img src="https://imransyd.github.io/pick.jpg"  class="exercises">
                         
                         <h5>travel API's</h5>
-                    </a>
-                </div>
+                     </a>
+                </div></div>
+              
               </div>
-              
-              
-            </div> 
-           
+             
            </div>
+           
            
 
         </div>   
-    </section>
+    
       
-    </div>
-    
-    <!-- Contacts  
-    <div class='contacts' id='contacts'>
-      <div class='container-fluid'>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      </div>
-    </div> -->  
-           
-    <!-- Footer -->
-    <footer>
-      <div class='container-fluid'>
-        <div class="row">
-        <div class='footer'>
-          <ul class='list-inline'>
-            <li><a class='other' href='#home'>Home</a></li>
-            <li class="footer-menu-divider">&sdot;</li>
-            <li><a class='other' href='#about'>About</a></li>
-            <li class="footer-menu-divider">&sdot;</li>
-            <li><a class='other' href='#portfolio'>My works</a></li>
-            <li class="footer-menu-divider">&sdot;</li>
-            <li><a class='other' href='#contacts'>Contacts</a></li>
-          </ul>
-          
-        </div>
-        </div>
-      </div>
-    </footer>
-           
-
-
-
-  <script>
-
-    /* For the proper transition to the anchores regarding fixed navigation bar */
-var shiftWindow = function() { scrollBy(0, -30) };
-if (location.hash) shiftWindow();
-window.addEventListener("hashchange", shiftWindow);
-    
-</script>
-</body>
+  </body>
 </html>
