@@ -184,7 +184,7 @@ Game.Draw = function(context, snake) {
   
   // Draw Cell
   this.drawCell = function(x, y) {
-    context.fillStyle = 'rgb(170, 170, 170)';
+    context.fillStyle = 'rgb(170, 13, 19)';
     context.beginPath();
     context.arc((x * snake.stage.conf.cw + 6), (y * snake.stage.conf.cw + 6), 4, 0, 2*Math.PI, false);    
     context.fill();
