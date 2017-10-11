@@ -12,9 +12,7 @@
 
 <canvas id="myCanvas" width="480" height="320"></canvas>
 
-<script>
-	// JavaScript code goes here
-</script>
+<script src="index.js"></script>
 
 </body>
 </html>
