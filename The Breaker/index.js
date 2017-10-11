@@ -1,3 +1,4 @@
+
 var canvas = document.getElementById("brickBreaker");
 var ctx = canvas.getContext("2d");
 
